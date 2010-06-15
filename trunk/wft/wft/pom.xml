@@ -133,7 +133,7 @@
 						<log>${project.build.directory}/tomcat6x/cargo.log</log>
 						<zipUrlInstaller>
 							<url>http://www.apache.org/dist/tomcat/tomcat-6/v6.0.26/bin/apache-tomcat-6.0.26.zip</url>
-							<installDir>/Volumes/DONNEES/Boulot/Dev/tomcat</installDir>
+							<installDir>${project.build.directory}/tomcat-install-dir/</installDir>
 						</zipUrlInstaller>
                         <timeout>360000</timeout>
 					</container>
@@ -172,7 +172,7 @@
 						<configuration>
 							<wait>true</wait>
 							<container>
-								<containerId>${tomcat.containerId}</containerId>
+								<containerId>tomcat6x</containerId>
 							</container>
 							<configuration>
 								<properties>
