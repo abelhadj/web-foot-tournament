@@ -18,8 +18,8 @@ import com.smartgwt.client.widgets.layout.VLayout;
 import com.smartgwt.client.widgets.tab.Tab;
 import com.smartgwt.client.widgets.tab.TabSet;
 import com.wft.model.ReturnMemento;
-import com.wft.service.services.AuthenticationService;
-import com.wft.service.services.AuthenticationServiceAsync;
+import com.wft.service.business.AuthenticationService;
+import com.wft.service.business.AuthenticationServiceAsync;
 
 public class LoginEntry implements EntryPoint
 {

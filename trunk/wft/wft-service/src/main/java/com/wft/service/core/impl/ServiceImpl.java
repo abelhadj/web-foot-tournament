@@ -18,7 +18,7 @@ public class ServiceImpl<T> implements ICommonService<T> {
 
     
     /* (non-Javadoc)
-     * @see com.wft.service.services.ICommonService#setDao(com.wft.service.dao.IDao)
+     * @see com.wft.service.business.ICommonService#setDao(com.wft.service.dao.IDao)
      */
     public void setDao(IDao<T> _dao) {
         this.dao = _dao;
@@ -26,7 +26,7 @@ public class ServiceImpl<T> implements ICommonService<T> {
 
 
     /* (non-Javadoc)
-     * @see com.wft.service.services.ICommonService#getDao()
+     * @see com.wft.service.business.ICommonService#getDao()
      */
     public IDao<T> getDao() {
         return dao;
@@ -34,7 +34,7 @@ public class ServiceImpl<T> implements ICommonService<T> {
 
 
     /* (non-Javadoc)
-     * @see com.wft.service.services.ICommonService#findById(java.io.Serializable)
+     * @see com.wft.service.business.ICommonService#findById(java.io.Serializable)
      */
     public T findById(Serializable _id){
         return dao.findById(_id);
@@ -42,14 +42,14 @@ public class ServiceImpl<T> implements ICommonService<T> {
     
 
     /* (non-Javadoc)
-     * @see com.wft.service.services.ICommonService#findAll()
+     * @see com.wft.service.business.ICommonService#findAll()
      */
     public List<T> fetch(){
         return dao.findAll();
     }
 
     /* (non-Javadoc)
-     * @see com.wft.service.services.ICommonService#count()
+     * @see com.wft.service.business.ICommonService#count()
      */
     public int count() {
         return dao.count();
@@ -57,7 +57,7 @@ public class ServiceImpl<T> implements ICommonService<T> {
     
 
     /* (non-Javadoc)
-     * @see com.wft.service.services.ICommonService#remove(java.lang.Object)
+     * @see com.wft.service.business.ICommonService#remove(java.lang.Object)
      */
     public void remove(T _id) {
         dao.delete(_id);
@@ -65,7 +65,7 @@ public class ServiceImpl<T> implements ICommonService<T> {
     
 
     /* (non-Javadoc)
-     * @see com.wft.service.services.ICommonService#add(java.lang.Object)
+     * @see com.wft.service.business.ICommonService#add(java.lang.Object)
      */
     public T add(T _o)  {
         return dao.add(_o);
@@ -73,21 +73,21 @@ public class ServiceImpl<T> implements ICommonService<T> {
  
 
     /* (non-Javadoc)
-     * @see com.wft.service.services.ICommonService#update(java.lang.Object)
+     * @see com.wft.service.business.ICommonService#update(java.lang.Object)
      */
     public T update(T _o)  {
         return (T)dao.update(_o);
     }
 
 	/* (non-Javadoc)
-	 * @see com.wft.service.services.ICommonService#getType()
+	 * @see com.wft.service.business.ICommonService#getType()
 	 */
 	public Class<T> getType() {
 		return getDao().getType();
 	}
 
     /* (non-Javadoc)
-     * @see com.wft.service.services.ICommonService#findRestrictedList(int, int, java.lang.String, java.lang.String)
+     * @see com.wft.service.business.ICommonService#findRestrictedList(int, int, java.lang.String, java.lang.String)
      */
     public List<T> findRestrictedList(int startPosition, int nbElements, String orderBy, String orderSens)
     {

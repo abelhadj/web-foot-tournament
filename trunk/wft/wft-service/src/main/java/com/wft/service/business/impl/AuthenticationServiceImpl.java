@@ -1,4 +1,4 @@
-package com.wft.service.services.impl;
+package com.wft.service.business.impl;
 
 import org.springframework.security.Authentication;
 import org.springframework.security.GrantedAuthority;
@@ -10,7 +10,7 @@ import org.springframework.security.providers.UsernamePasswordAuthenticationToke
 import org.springframework.security.userdetails.User;
 
 import com.wft.model.ReturnMemento;
-import com.wft.service.services.AuthenticationService;
+import com.wft.service.business.AuthenticationService;
 
 /**
  * {@link AuthenticationService} implementation.

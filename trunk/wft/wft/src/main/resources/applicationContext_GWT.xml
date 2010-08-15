@@ -6,10 +6,10 @@
 
 	<!-- Service layer -->
 	<bean id="authenticationService"
-		class="com.wft.service.services.impl.AuthenticationServiceImpl" />
+		class="com.wft.service.business.impl.AuthenticationServiceImpl" />
 
 	<bean id="projectService"
-		class="com.wft.service.services.impl.ProjectServiceImpl">
+		class="com.wft.service.business.impl.ProjectServiceImpl">
 		<property name="dao" ref="projectDAO"></property>
 	</bean>
 </beans>

@@ -15,9 +15,9 @@ import com.smartgwt.client.util.JSOHelper;
 import com.smartgwt.client.util.SC;
 import com.smartgwt.client.widgets.grid.ListGridRecord;
 import com.wft.model.Project;
-import com.wft.service.services.ProjectService;
-import com.wft.service.services.ProjectServiceAsync;
-import com.wft.service.services.exception.ServiceSecurityException;
+import com.wft.service.business.ProjectService;
+import com.wft.service.business.ProjectServiceAsync;
+import com.wft.service.business.exception.ServiceSecurityException;
 
 /**
  * 

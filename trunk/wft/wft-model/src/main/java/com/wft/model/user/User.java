@@ -2,7 +2,7 @@ package com.wft.model.user;
 
 import java.util.Date;
 
-public class User {
+public abstract class User {
 	
 	private String login;
 	private String password;
@@ -12,4 +12,5 @@ public class User {
 	private Date birthDate;
 	private String mailAdress;
 
+	protected abstract Role getRole();
 }

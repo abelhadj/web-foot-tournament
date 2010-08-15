@@ -25,8 +25,8 @@ import com.smartgwt.client.widgets.layout.VLayout;
 import com.smartgwt.client.widgets.tab.Tab;
 import com.smartgwt.client.widgets.tab.TabSet;
 import com.wft.client.datasources.ProjectDS;
-import com.wft.service.services.AuthenticationService;
-import com.wft.service.services.AuthenticationServiceAsync;
+import com.wft.service.business.AuthenticationService;
+import com.wft.service.business.AuthenticationServiceAsync;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
