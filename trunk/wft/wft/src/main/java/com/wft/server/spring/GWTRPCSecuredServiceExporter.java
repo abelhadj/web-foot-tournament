@@ -8,7 +8,7 @@ import org.springframework.security.SpringSecurityException;
 import com.google.gwt.user.server.rpc.RPC;
 import com.google.gwt.user.server.rpc.RPCRequest;
 import com.wft.server.spring.hb4gwt.HB4GWTRPCServiceExporter;
-import com.wft.service.business.exception.ServiceSecurityException;
+import com.wft.service.services.exception.ServiceSecurityException;
 
 public class GWTRPCSecuredServiceExporter extends HB4GWTRPCServiceExporter
 {

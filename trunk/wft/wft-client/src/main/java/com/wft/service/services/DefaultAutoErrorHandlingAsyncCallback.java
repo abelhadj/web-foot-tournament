@@ -1,4 +1,4 @@
-package com.wft.service.business;
+package com.wft.service.services;
 
 import com.smartgwt.client.util.SC;
 

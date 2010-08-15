@@ -1,7 +1,7 @@
-package com.wft.service.business;
+package com.wft.service.services;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.wft.service.business.exception.ServiceSecurityException;
+import com.wft.service.services.exception.ServiceSecurityException;
 
 /**
  * {@link AsyncCallback} switch recognises {@link ServiceSecurityException} and

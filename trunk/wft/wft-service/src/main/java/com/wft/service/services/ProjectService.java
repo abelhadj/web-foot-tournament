@@ -1,4 +1,4 @@
-package com.wft.service.business;
+package com.wft.service.services;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.security.annotation.Secured;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.wft.model.Project;
-import com.wft.service.business.exception.ServiceSecurityException;
+import com.wft.service.services.exception.ServiceSecurityException;
 
 /**
  * Services related to projects operations
