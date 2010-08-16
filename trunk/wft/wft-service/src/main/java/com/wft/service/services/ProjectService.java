@@ -22,7 +22,7 @@ public interface ProjectService extends RemoteService
      * @return the list of projects available
      * @throws ServiceSecurityException 
      */
-    @Secured("ROLE_ADMIN")
+    @Secured("ROLE_ADMINISTRATOR")
     List<Project> fetch() throws ServiceSecurityException;
 
     /**
@@ -31,7 +31,7 @@ public interface ProjectService extends RemoteService
      * @return the record added and potentially modified on server side
      * @throws ServiceSecurityException
      */
-    @Secured("ROLE_ADMIN")
+    @Secured("ROLE_ADMINISTRATOR")
     Project add(Project record) throws ServiceSecurityException;
 
     /**
@@ -39,13 +39,13 @@ public interface ProjectService extends RemoteService
      * @return the record updated and potentially modified on server side
      * @throws ServiceSecurityException
      */
-    @Secured("ROLE_ADMIN")
+    @Secured("ROLE_ADMINISTRATOR")
     Project update(Project record) throws ServiceSecurityException;
 
     /**
      * @param record the record to remove
      * @throws ServiceSecurityException
      */
-    @Secured("ROLE_ADMIN")
+    @Secured("ROLE_ADMINISTRATOR")
     void remove(Project record) throws ServiceSecurityException;
 }
