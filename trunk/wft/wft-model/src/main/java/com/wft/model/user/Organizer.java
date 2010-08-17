@@ -1,9 +1,10 @@
 package com.wft.model.user;
 
 public class Organizer extends User {
-	@Override
-	protected Role getRole() {
-		return Role.ROLE_ORGANIZER;
+
+	public Organizer(String login, String password) {
+		super(login, password);
+		this.role = Role.ROLE_ORGANIZER;
 	}
 
 }

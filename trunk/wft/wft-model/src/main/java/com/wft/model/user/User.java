@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -46,15 +48,14 @@ public class User extends LightEntity implements Serializable {
 	private String mailAdress;
 
 	@Column(name = "ROLE")
-	protected Role getRole() {
-		return Role.ROLE_USER;
-	}
+	@Enumerated(EnumType.STRING)
+	protected Role role;
 
-	public User() {
-	}
+	public User() {}
 
 	public User(String login, String password) {
 		super();
+		this.role = Role.ROLE_USER;
 		this.login = login;
 		this.password = password;
 	}
