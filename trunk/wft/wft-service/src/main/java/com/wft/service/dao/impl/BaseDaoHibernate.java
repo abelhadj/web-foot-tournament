@@ -8,6 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.wft.service.dao.IDao;
 /**
@@ -16,7 +17,7 @@ import com.wft.service.dao.IDao;
  * operations.</p>
  *
  */
-public class BaseDaoHibernate <T> extends HibernateDAO implements IDao <T> 
+public class BaseDaoHibernate <T> extends HibernateDaoSupport implements IDao <T> 
 {
     /**
      * logger
@@ -42,7 +43,7 @@ public class BaseDaoHibernate <T> extends HibernateDAO implements IDao <T>
     @SuppressWarnings("unchecked")
     public List<T> findRestrictedList (int startPosition, int nbElements, String orderBy, String orderSens )
     {
-        Criteria criteria = getCurrentSession().createCriteria(type);
+        Criteria criteria = getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(type);
 
         criteria.setFirstResult(startPosition);
         criteria.setMaxResults(nbElements);
@@ -76,7 +77,7 @@ public class BaseDaoHibernate <T> extends HibernateDAO implements IDao <T>
         {
         	logger.debug("add object of class " +type.getName() + " : " + _o);
         }
-        getCurrentSession().save(_o);
+        getHibernateTemplate().save(_o);
         return _o;
     }
 
@@ -88,7 +89,7 @@ public class BaseDaoHibernate <T> extends HibernateDAO implements IDao <T>
         {
             logger.debug("update object of class " +type.getName() + " : " + _o);
         }
-        getCurrentSession().saveOrUpdate(_o);
+        getHibernateTemplate().saveOrUpdate(_o);
         return _o;
     }
 
@@ -102,8 +103,7 @@ public class BaseDaoHibernate <T> extends HibernateDAO implements IDao <T>
         {
             logger.debug("find object of class " +type.getName() + " with id : " + _id);
         }
-        Session session = getCurrentSession();
-        T o = (T) session.get(type, _id);
+        T o = (T) getHibernateTemplate().get(type, _id);
         if ( logger.isDebugEnabled())
         {
             logger.debug("found " +o);
@@ -118,7 +118,7 @@ public class BaseDaoHibernate <T> extends HibernateDAO implements IDao <T>
     public List<T> findAll() {
         String[] sortOrders = getNaturalSortOrders();
         
-        Criteria crit = getCurrentSession().createCriteria(type);
+        Criteria crit = getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(type);
         if ( sortOrders != null )
         {
             for (int i = 0 ; i < sortOrders.length ; i++)
@@ -134,7 +134,7 @@ public class BaseDaoHibernate <T> extends HibernateDAO implements IDao <T>
      * @see com.wft.service.dao.IDao#count()
      */
     public int count() {
-        Criteria crit = getCurrentSession().createCriteria(type);
+        Criteria crit = getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(type);
         crit.setProjection(Projections.rowCount());
         return ((Integer)crit.list().get(0)).intValue(); 
     }
@@ -147,7 +147,7 @@ public class BaseDaoHibernate <T> extends HibernateDAO implements IDao <T>
         {
             logger.debug("delete object of class : " +type.getName() + " with id : " + _id);
         }
-        getCurrentSession().delete(findById(_id));
+        getHibernateTemplate().delete(findById(_id));
     }
     
 	/* (non-Javadoc)
@@ -166,6 +166,6 @@ public class BaseDaoHibernate <T> extends HibernateDAO implements IDao <T>
         {
             logger.debug("delete object of class : " +type.getName() + " : " + _o);
         }
-        getCurrentSession().delete(_o);
+        getHibernateTemplate().delete(_o);
     }
 }

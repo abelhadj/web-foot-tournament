@@ -63,7 +63,7 @@
 		</property>
 		<property name="beanNames">
 			<list>
-				<idref bean="projectDAO" />
+				<value>*DAO</value>
 			</list>
 		</property>
 	</bean>
