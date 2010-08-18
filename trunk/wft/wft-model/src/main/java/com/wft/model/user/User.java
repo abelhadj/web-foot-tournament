@@ -8,8 +8,6 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,9 +15,9 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ForceDiscriminator;
-
 import net.sf.gilead.pojo.java5.LightEntity;
+
+import org.hibernate.annotations.ForceDiscriminator;
 
 @Entity
 @Table(name = "USER")
@@ -56,18 +54,12 @@ public class User extends LightEntity implements Serializable {
 	@Column(name = "MAILADRESS")
 	private String mailAdress;
 
-//	@Column(name = "ROLE")
-//	@Enumerated(EnumType.STRING)
-//	protected Role role;
-
 	public User() {
 		super();
-//		this.role = Role.ROLE_USER;
 	}
 
 	public User(String login, String password) {
 		super();
-//		this.role = Role.ROLE_USER;
 		this.login = login;
 		this.password = password;
 	}

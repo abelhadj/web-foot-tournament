@@ -34,9 +34,10 @@
 				<value>com.wft.model.Authors</value>
 				<value>com.wft.model.user.User</value>
 				<value>com.wft.model.user.Administrator</value>
+				<value>com.wft.model.user.Gamer</value>
+				<value>com.wft.model.user.Organizer</value>
 			</list>
 		</property>
-		<property name="lobHandler" ref="lobHandler" />
 	</bean>
 
 	<!-- Hibernate Transaction Manager Definition -->
@@ -55,7 +56,7 @@
 		</property>
 	</bean>
 
-<!-- 
+	<!-- -->
 	<bean id="autoProxyCreator"
 		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
 		<property name="interceptorNames">
@@ -69,7 +70,7 @@
 			</list>
 		</property>
 	</bean>
- -->
+
 	<bean id="projectDAO" class="com.wft.service.dao.impl.ProjectDAO">
 		<constructor-arg>
 			<value>com.wft.model.Project</value>
@@ -94,12 +95,13 @@
 	 -->
 
 	<!--
-	<bean id="proxyStore" class="net.sf.gilead.core.store.stateless.StatelessProxyStore" />
+		<bean id="proxyStore"
+		class="net.sf.gilead.core.store.stateless.StatelessProxyStore" />
 
-	<bean id="persistenceUtil" class="net.sf.gilead.core.hibernate.HibernateUtil">
-		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean>
-	 -->
+		<bean id="persistenceUtil"
+		class="net.sf.gilead.core.hibernate.HibernateUtil"> <property
+		name="sessionFactory" ref="sessionFactory"></property> </bean>
+	-->
 
 
 	<!--
@@ -108,10 +110,10 @@
 	-->
 
 	<!--
-	<bean id="persistentBeanManager" class="net.sf.gilead.core.PersistentBeanManager">
-		<property name="proxyStore" ref="proxyStore" />
-		<property name="persistenceUtil" ref="persistenceUtil"></property>
-	</bean>
-	 -->
+		<bean id="persistentBeanManager"
+		class="net.sf.gilead.core.PersistentBeanManager"> <property
+		name="proxyStore" ref="proxyStore" /> <property name="persistenceUtil"
+		ref="persistenceUtil"></property> </bean>
+	-->
 
 </beans>    	

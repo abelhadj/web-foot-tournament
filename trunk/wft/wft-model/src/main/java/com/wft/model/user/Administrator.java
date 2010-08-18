@@ -15,12 +15,13 @@ public class Administrator extends User {
 	 */
 	private static final long serialVersionUID = 4070529120457672054L;
 
-	public Administrator() {
-//		this.role = Role.ROLE_ADMINISTRATOR;
+
+	private Administrator() {
+		super();
 	}
+
 
 	public Administrator(String login, String password) {
 		super(login, password);
-//		this.role = Role.ROLE_ADMINISTRATOR;
 	}
 }
