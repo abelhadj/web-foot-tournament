@@ -30,7 +30,7 @@ public class ServiceImpl<T> implements ICommonService<T> {
      */
     public IDao<T> getDao() {
         return dao;
-    }    
+    }
 
 
     /* (non-Javadoc)

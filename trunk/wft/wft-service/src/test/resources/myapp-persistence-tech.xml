@@ -22,7 +22,7 @@
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 		<property name="dataSource">
@@ -33,6 +33,7 @@
 				<value>com.wft.model.Project</value>
 				<value>com.wft.model.Authors</value>
 				<value>com.wft.model.user.User</value>
+				<value>com.wft.model.user.Administrator</value>
 			</list>
 		</property>
 		<property name="lobHandler" ref="lobHandler" />
@@ -54,6 +55,7 @@
 		</property>
 	</bean>
 
+<!-- 
 	<bean id="autoProxyCreator"
 		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
 		<property name="interceptorNames">
@@ -67,7 +69,7 @@
 			</list>
 		</property>
 	</bean>
-
+ -->
 	<bean id="projectDAO" class="com.wft.service.dao.impl.ProjectDAO">
 		<constructor-arg>
 			<value>com.wft.model.Project</value>

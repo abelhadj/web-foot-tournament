@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,10 +17,16 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ForceDiscriminator;
+
 import net.sf.gilead.pojo.java5.LightEntity;
 
 @Entity
 @Table(name = "USER")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="ROLE", discriminatorType=DiscriminatorType.STRING)
+@DiscriminatorValue(value="ROLE_USER")
+@ForceDiscriminator
 public class User extends LightEntity implements Serializable {
 
 	/**
@@ -47,15 +56,18 @@ public class User extends LightEntity implements Serializable {
 	@Column(name = "MAILADRESS")
 	private String mailAdress;
 
-	@Column(name = "ROLE")
-	@Enumerated(EnumType.STRING)
-	protected Role role;
+//	@Column(name = "ROLE")
+//	@Enumerated(EnumType.STRING)
+//	protected Role role;
 
-	public User() {}
+	public User() {
+		super();
+//		this.role = Role.ROLE_USER;
+	}
 
 	public User(String login, String password) {
 		super();
-		this.role = Role.ROLE_USER;
+//		this.role = Role.ROLE_USER;
 		this.login = login;
 		this.password = password;
 	}

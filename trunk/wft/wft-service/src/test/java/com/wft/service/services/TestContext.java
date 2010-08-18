@@ -5,6 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.AbstractTransactionalDataSourceSpringContextTests;
 
 import com.wft.model.Project;
+import com.wft.model.user.Administrator;
 import com.wft.model.user.User;
 import com.wft.service.dao.IProjectDAO;
 import com.wft.service.dao.IUserDAO;
@@ -20,8 +21,21 @@ public class TestContext extends AbstractTransactionalDataSourceSpringContextTes
 	      return new String[]{"myapp-persistence-tech.xml", "datasource_mysql.xml"};
 	  }
 
-	  /**
-	   * Spring will automatically inject UserDao object on startup
+
+	@Override
+	protected boolean isDefaultRollback() {
+		return false;
+	}
+
+
+	@Override
+	protected boolean isRollback() {
+		return false;
+	}
+
+
+	/**
+	   * Spring will automatically inject userDAO object on startup
 	   * @param userDAO
 	   */
 	  public void setUserDAO(IUserDAO userDAO) {
@@ -29,8 +43,8 @@ public class TestContext extends AbstractTransactionalDataSourceSpringContextTes
 	  }
 
 	  /**
-	   * Spring will automatically inject UserDao object on startup
-	   * @param userDAO
+	   * Spring will automatically inject projectDAO object on startup
+	   * @param projectDAO
 	   */
 	  public void setProjectDAO(IProjectDAO projectDAO) {
 	      this.projectDAO = projectDAO;
@@ -45,16 +59,21 @@ public class TestContext extends AbstractTransactionalDataSourceSpringContextTes
 	  }
 	  
 	public void test1() {
-//		Administrator admin = new Administrator("admin", "admin");
+		Administrator admin = new Administrator("admin", "admin");
 		User user1 = new User("user1","user1");
 		User user2 = new User("user2","user2");
 
 		for (User user : userDAO.findAll())
 		{
+			if (user instanceof Administrator) {
+				System.out.println("Deleting administrator");
+			} else {
+				System.out.println("Deleting user");
+			}
 			userDAO.delete(user);
 		}
-//		this.getDao().add(admin);
-//		dao.add(user1);
+		userDAO.add(user1);
+		userDAO.add(admin);
 //		dao.add(user2);
 
 		System.out.println();
@@ -72,7 +91,7 @@ public class TestContext extends AbstractTransactionalDataSourceSpringContextTes
 //		this.getDao().add(admin);
 //		dao.add(user1);
 		projectDAO.add(p);
-
+		
 		System.out.println();
 		assertTrue(true);
 	}
