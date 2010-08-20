@@ -1,5 +1,7 @@
 package com.wft.service.services;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.impl.SessionFactoryImpl;
 import org.springframework.test.AbstractTransactionalDataSourceSpringContextTests;
 
 import com.wft.model.Project;
@@ -8,11 +10,16 @@ import com.wft.model.user.User;
 import com.wft.service.dao.IProjectDAO;
 import com.wft.service.dao.IUserDAO;
 
-public class TestContext extends
+public class TestDAO extends
 		AbstractTransactionalDataSourceSpringContextTests {
 
 	private IUserDAO userDAO;
 	private IProjectDAO projectDAO;
+	private SessionFactory sessionFactory;
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 
 	protected String[] getConfigLocations() {
 		return new String[] { "classpath*:myapp-persistence-tech.xml",
@@ -49,6 +56,10 @@ public class TestContext extends
 	}
 
 	public void test1() {
+		System.out.println("Session Factory : "+sessionFactory);
+		@SuppressWarnings("unused")
+		SessionFactoryImpl sfImpl = (SessionFactoryImpl)sessionFactory;
+		
 		Administrator admin = new Administrator("admin", "admin");
 		User user1 = new User("user1", "user1");
 		User user2 = new User("user2", "user2");

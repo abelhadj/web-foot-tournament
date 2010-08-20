@@ -15,14 +15,14 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
-import net.sf.gilead.pojo.java5.LightEntity;
-
 import org.hibernate.annotations.ForceDiscriminator;
+
+import net.sf.gilead.pojo.java5.LightEntity;
 
 @Entity
 @Table(name = "USER")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="ROLE", discriminatorType=DiscriminatorType.STRING)
+@DiscriminatorColumn(name="DTYPE", discriminatorType=DiscriminatorType.STRING, columnDefinition="VARCHAR(32) DEFAULT \"ROLE_USER\"", length=32)
 @DiscriminatorValue(value="ROLE_USER")
 @ForceDiscriminator
 public class User extends LightEntity implements Serializable {

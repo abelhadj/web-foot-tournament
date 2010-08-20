@@ -9,8 +9,13 @@
 	-->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   					   http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/tx
+                           http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<!-- le gestionnaire de BLOB / CLOB de chez Spring -->
 	<bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" />
@@ -20,7 +25,7 @@
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
@@ -28,6 +33,13 @@
 		<property name="dataSource">
 			<ref bean="datasource" />
 		</property>
+		<property name="packagesToScan">
+			<list>
+				<value>com.wft.model</value>
+				<value>com.wft.model.user</value>
+			</list>
+		</property>
+		<!-- 
 		<property name="annotatedClasses">
 			<list>
 				<value>com.wft.model.Project</value>
@@ -38,7 +50,8 @@
 				<value>com.wft.model.user.Organizer</value>
 			</list>
 		</property>
-	</bean>
+ 		-->
+ 	</bean>
 
 	<!-- Hibernate Transaction Manager Definition -->
 	<bean id="transactionManager"
@@ -46,6 +59,9 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
+	<!-- TODO: Switch to annotations for transactions
+	<tx:annotation-driven/>
+	-->
 	<bean id="transactionInterceptor"
 		class="org.springframework.transaction.interceptor.TransactionInterceptor">
 		<property name="transactionManager" ref="transactionManager" />
