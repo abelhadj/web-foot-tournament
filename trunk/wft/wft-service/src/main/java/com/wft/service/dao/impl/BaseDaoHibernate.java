@@ -8,6 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 
 import com.wft.service.dao.IDao;
 /**
@@ -168,4 +169,14 @@ public class BaseDaoHibernate <T> extends HibernateDAO implements IDao <T>
         }
         getCurrentSession().delete(_o);
     }
+
+
+	public List<T> findByPropertyValue(String propertyName, Object propertyValue) {
+        Criteria criteria = getCurrentSession().createCriteria(type);
+        
+        criteria.add(Restrictions.eq(propertyName, propertyValue));
+        
+        List<T> results = criteria.list();
+        return results;
+	}
 }

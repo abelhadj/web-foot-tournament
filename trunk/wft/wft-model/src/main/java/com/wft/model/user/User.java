@@ -64,4 +64,70 @@ public class User extends LightEntity implements Serializable {
 		this.password = password;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public String getMailAdress() {
+		return mailAdress;
+	}
+
+	public void setMailAdress(String mailAdress) {
+		this.mailAdress = mailAdress;
+	}
+
+	public String getRoleName() {
+		if (this instanceof Administrator) {
+			return "ROLE_ADMINISTRATOR";
+		} else if (this instanceof Organizer) {
+			return "ROLE_ADMINISTRATOR";
+		} else if (this instanceof Gamer) {
+			return "ROLE_ADMINISTRATOR";
+		}
+		return "ROLE_USER";
+	}
 }

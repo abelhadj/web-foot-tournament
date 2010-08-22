@@ -10,7 +10,12 @@ import org.hibernate.annotations.ForceDiscriminator;
 @ForceDiscriminator
 public class Gamer extends User {
 
-	private Gamer() {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2757500216253370205L;
+
+	public Gamer() {
 		super();
 	}
 

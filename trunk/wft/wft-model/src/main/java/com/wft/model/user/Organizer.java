@@ -11,7 +11,12 @@ import org.hibernate.annotations.ForceDiscriminator;
 public class Organizer extends User {
 
 	
-	private Organizer() {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3653237723589033376L;
+
+	public Organizer() {
 		super();
 	}
 

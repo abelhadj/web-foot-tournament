@@ -12,7 +12,7 @@ import com.wft.service.dao.IUserDAO;
 @Ignore
 public class TestApp {
 public static void main(String[] args) {
-	ClassPathXmlApplicationContext ctxt = new ClassPathXmlApplicationContext(new String[] { "myapp-persistence-tech.xml",
+	ClassPathXmlApplicationContext ctxt = new ClassPathXmlApplicationContext(new String[] { "applicationContext-persistence.xml",
 				"datasource_mysql.xml" });
 	ctxt.getBean("sessionFactory");
 	IProjectDAO projectDAO = (IProjectDAO) ctxt.getBean("projectDAO");

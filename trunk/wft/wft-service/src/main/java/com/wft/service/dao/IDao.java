@@ -17,6 +17,8 @@ public interface IDao<T> {
      */
     public List<T> findAll();
 
+    public List<T> findByPropertyValue(String propertyName, Object propertyValue);
+
     /**
      * Generic method used to get the count of object.
      * @return List of populated objects

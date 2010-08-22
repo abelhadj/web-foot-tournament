@@ -22,7 +22,7 @@ public class TestDAO extends
 	}
 
 	protected String[] getConfigLocations() {
-		return new String[] { "classpath*:myapp-persistence-tech.xml",
+		return new String[] { "classpath*:applicationContext-persistence.xml",
 				"classpath*:datasource_mysql.xml" };
 	}
 

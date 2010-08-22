@@ -19,7 +19,7 @@
 		<param-value>
 			classpath:applicationContext-security_GWT.xml
 			classpath:applicationContext_GWT.xml
-			classpath:myapp-persistence-tech.xml
+			classpath:applicationContext-persistence.xml
 			classpath:datasource_mysql.xml
 		</param-value>
 	</context-param>

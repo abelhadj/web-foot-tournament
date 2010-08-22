@@ -16,7 +16,7 @@ public class Administrator extends User {
 	private static final long serialVersionUID = 4070529120457672054L;
 
 
-	private Administrator() {
+	public Administrator() {
 		super();
 	}
 
