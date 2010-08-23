@@ -47,13 +47,18 @@
 	<properties>
 		<!--  convenience to define GWT version in one place -->
 		<gwtVersion>1.7.0</gwtVersion>
-		<!--  default configuration for tomcat -->
-		<tomcat.containerId>tomcat5x</tomcat.containerId>
-		<tomcat.port>8082</tomcat.port>
-		<tomcat.installDir>${java.io.tmpdir}/cargo/installs</tomcat.installDir>
+
 		<java.awt.headless>true</java.awt.headless>
 		<cargo.wait>false</cargo.wait>
 		<gwt.noserver>true</gwt.noserver>
+		
+		<hibernate.version>3.2.7.ga</hibernate.version>
+		<hibernate.annotations.version>3.4.0.GA</hibernate.annotations.version>
+		<spring.version>2.5.6</spring.version>
+		<spring.mvc.version>2.5.6</spring.mvc.version>
+		<spring.security.version>2.0.4</spring.security.version>
+		<gilead.version>1.2.3</gilead.version>
+		<smartgwt.version>2.2</smartgwt.version>
 	</properties>
 
 	<modules>

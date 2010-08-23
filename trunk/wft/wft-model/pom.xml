@@ -23,14 +23,14 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-annotations</artifactId>
-			<version>3.4.0.GA</version>
+			<version>${hibernate.annotations.version}</version>
 		</dependency>
 		
 		<!-- Bridge between pojo and GWT when using hibernate -->
 		<dependency>
 			<groupId>net.sf.gilead</groupId>
 			<artifactId>adapter4gwt</artifactId>
-			<version>1.2.3</version>
+			<version>${gilead.version}</version>
 		</dependency>		
 	</dependencies>
 	
