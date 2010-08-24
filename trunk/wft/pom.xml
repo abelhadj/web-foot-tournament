@@ -54,7 +54,7 @@
 
 	<properties>
 		<!--  convenience to define GWT version in one place -->
-		<gwtVersion>1.7.0</gwtVersion>
+		<gwtVersion>1.7.1</gwtVersion>
 
 		<java.awt.headless>true</java.awt.headless>
 		<cargo.wait>false</cargo.wait>

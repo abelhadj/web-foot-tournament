@@ -94,7 +94,6 @@ public class LoginEntry implements EntryPoint
 	        AuthenticationServiceAsync service = GWT.create(AuthenticationService.class);
 	        service.authenticate(form.getValueAsString("login"), form.getValueAsString("password"), new AsyncCallback<ReturnMemento>()
 	        {
-	
 	            public void onSuccess(ReturnMemento result)
 	            {
 	                if (result.getCode() == ReturnMemento.CODE_SUCCESS)
