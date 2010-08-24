@@ -125,12 +125,12 @@
 			<plugin>
 				<groupId>org.codehaus.cargo</groupId>
 				<artifactId>cargo-maven2-plugin</artifactId>
-				<version>1.0</version>
+				<version>${cargo.maven.version}</version>
 				<configuration>
 					<wait>true</wait>
 					<container>
-						<containerId>tomcat6x</containerId>
-						<log>${project.build.directory}/tomcat6x/cargo.log</log>
+						<containerId>${tomcat.containerId}</containerId>
+						<log>${project.build.directory}/${tomcat.containerId}/cargo.log</log>
 						<zipUrlInstaller>
 							<url>file:///${project.build.directory}/../tomcat-archive/apache-tomcat-6.0.26.zip</url>
 							<installDir>${project.build.directory}/tomcat-install-dir/</installDir>
@@ -138,7 +138,7 @@
                         <timeout>360000</timeout>
 					</container>
 					<configuration>
-						<home>${project.build.directory}/tomcat6x/container</home>
+						<home>${project.build.directory}/${tomcat.containerId}/container</home>
 						<properties>
 							<cargo.servlet.port>8080</cargo.servlet.port>
 							<cargo.logging>high</cargo.logging>
@@ -169,10 +169,11 @@
 					<plugin>
 						<groupId>org.codehaus.cargo</groupId>
 						<artifactId>cargo-maven2-plugin</artifactId>
+						<version>${cargo.maven.version}</version>
 						<configuration>
 							<wait>true</wait>
 							<container>
-								<containerId>tomcat6x</containerId>
+								<containerId>${tomcat.containerId}</containerId>
 							</container>
 							<configuration>
 								<properties>
@@ -194,6 +195,7 @@
 					<plugin>
 						<groupId>org.codehaus.cargo</groupId>
 						<artifactId>cargo-maven2-plugin</artifactId>
+						<version>${cargo.maven.version}</version>
 						<executions>
 							<execution>
 								<id>start-container</id>

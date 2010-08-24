@@ -12,6 +12,8 @@ import com.smartgwt.client.util.SC;
 import com.smartgwt.client.widgets.IButton;
 import com.smartgwt.client.widgets.events.ClickEvent;
 import com.smartgwt.client.widgets.events.ClickHandler;
+import com.smartgwt.client.widgets.events.KeyPressEvent;
+import com.smartgwt.client.widgets.events.KeyPressHandler;
 import com.smartgwt.client.widgets.form.DynamicForm;
 import com.smartgwt.client.widgets.layout.HLayout;
 import com.smartgwt.client.widgets.layout.VLayout;
@@ -56,45 +58,25 @@ public class LoginEntry implements EntryPoint
         {
             public void onClick(ClickEvent event)
             {
-                if (form.validate(false))
-                {
-                    AuthenticationServiceAsync service = GWT.create(AuthenticationService.class);
-                    service.authenticate(form.getValueAsString("login"), form.getValueAsString("password"), new AsyncCallback<ReturnMemento>()
-                    {
-
-                        public void onSuccess(ReturnMemento result)
-                        {
-                            if (result.getCode() == ReturnMemento.CODE_SUCCESS)
-                            {
-                                String path = Window.Location.getPath();
-                                String modulePath = "/com.wft.Login/Login.html";
-                                int index = path.indexOf(modulePath);
-                                String contextPath = path.substring(0,index);
-
-                                Window.open(contextPath+"/com.wft.Application/Application.html", "_self", "");
-                            }
-                            else
-                            {
-                                form.setErrors(result.getErrors(), true);
-                            }
-                        }
-
-                        public void onFailure(Throwable arg0)
-                        {
-                            SC.say("error : " + arg0);
-                        }
-                    });
-                }
-
+                callAuthenticate(form);
             }
         });
+        
+        form.addKeyPressHandler(new KeyPressHandler() {
+			
+			public void onKeyPress(KeyPressEvent event) {
+				if ("Enter".equals(event.getKeyName())) {
+					callAuthenticate(form);
+				}
+			}
+		});
 
         VLayout formLayout = new VLayout(10);
         formLayout.addMember(form);
         formLayout.addMember(validateItem);
 
         item.setPane(formLayout);
-        theTabs.setTabs(item,register);  
+        theTabs.setTabs(item,register);
 
         
         VLayout layout = new VLayout(10);
@@ -105,5 +87,37 @@ public class LoginEntry implements EntryPoint
         
         layout.draw();
     }
+
+	private void callAuthenticate(final DynamicForm form) {
+		if (form.validate(false))
+	    {
+	        AuthenticationServiceAsync service = GWT.create(AuthenticationService.class);
+	        service.authenticate(form.getValueAsString("login"), form.getValueAsString("password"), new AsyncCallback<ReturnMemento>()
+	        {
+	
+	            public void onSuccess(ReturnMemento result)
+	            {
+	                if (result.getCode() == ReturnMemento.CODE_SUCCESS)
+	                {
+	                    String path = Window.Location.getPath();
+	                    String modulePath = "/com.wft.Login/Login.html";
+	                    int index = path.indexOf(modulePath);
+	                    String contextPath = path.substring(0,index);
+	
+	                    Window.open(contextPath+"/com.wft.Application/Application.html", "_self", "");
+	                }
+	                else
+	                {
+	                    form.setErrors(result.getErrors(), true);
+	                }
+	            }
+	
+	            public void onFailure(Throwable arg0)
+	            {
+	                SC.say("error : " + arg0);
+	            }
+	        });
+	    }
+	}
 
 }

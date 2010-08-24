@@ -15,8 +15,16 @@
 			<id>gwt-maven-plugins</id>
 			<url>http://gwt-maven.googlecode.com/svn/trunk/mavenrepo/</url>
 		</pluginRepository>
+		<pluginRepository>
+			<id>codehaus-plugins</id>
+			<url>https://nexus.codehaus.org/content/repositories/releases/</url>
+		</pluginRepository>
 	</pluginRepositories>
 	<repositories>
+		<repository>
+			<id>codehaus</id>
+			<url>https://nexus.codehaus.org/content/repositories/releases/</url>
+		</repository>
 		<repository>
 			<id>gwt-maven</id>
 			<url>http://gwt-maven.googlecode.com/svn/trunk/mavenrepo/</url>
@@ -52,13 +60,19 @@
 		<cargo.wait>false</cargo.wait>
 		<gwt.noserver>true</gwt.noserver>
 		
+		<tomcat.containerId>tomcat6x</tomcat.containerId>
+		
 		<hibernate.version>3.2.7.ga</hibernate.version>
 		<hibernate.annotations.version>3.4.0.GA</hibernate.annotations.version>
 		<spring.version>2.5.6</spring.version>
 		<spring.mvc.version>2.5.6</spring.mvc.version>
 		<spring.security.version>2.0.4</spring.security.version>
 		<gilead.version>1.2.3</gilead.version>
+		<smartgwt.version>1.1</smartgwt.version>
+		<!-- 
 		<smartgwt.version>2.2</smartgwt.version>
+		-->
+		<cargo.maven.version>1.0</cargo.maven.version>
 	</properties>
 
 	<modules>
