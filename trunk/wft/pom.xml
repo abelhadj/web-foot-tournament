@@ -58,7 +58,7 @@
 
 		<java.awt.headless>true</java.awt.headless>
 		<cargo.wait>false</cargo.wait>
-		<gwt.noserver>true</gwt.noserver>
+		<gwt.noserver>false</gwt.noserver>
 		
 		<tomcat.containerId>tomcat6x</tomcat.containerId>
 		

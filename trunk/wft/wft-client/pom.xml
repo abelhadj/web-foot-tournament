@@ -103,6 +103,7 @@
 					<logLevel>INFO</logLevel>
 					<style>DETAILED</style>
 					<gwtVersion>${gwtVersion}</gwtVersion>
+					<port>8080</port>
 
 					<output>${basedir}/war</output>
 					<webXml>${basedir}/war/WEB-INF/web.xml</webXml>
