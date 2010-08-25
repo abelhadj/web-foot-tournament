@@ -60,13 +60,13 @@
 			<groupId>${groupId}</groupId>
 			<artifactId>wft-model</artifactId>
 			<version>${version}</version>
-			<type>java-source</type>
+			<classifier>sources</classifier>
 		</dependency>
 		<dependency>
 			<groupId>${groupId}</groupId>
 			<artifactId>wft-service</artifactId>
 			<version>${version}</version>
-			<type>java-source</type>
+			<classifier>sources</classifier>
 		</dependency>
 
 		<!-- test -->
@@ -92,7 +92,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
-				<version>1.1</version>
+				<version>1.2</version>
 				<configuration>
 					<modules>
 						<module>com.wft.Login</module>
@@ -103,7 +103,8 @@
 					<logLevel>INFO</logLevel>
 					<style>DETAILED</style>
 					<gwtVersion>${gwtVersion}</gwtVersion>
-					<port>8080</port>
+					<port>8888</port>
+					<extraJvmArgs>-d32 -Xmx1024m</extraJvmArgs>
 
 					<output>${basedir}/war</output>
 					<webXml>${basedir}/war/WEB-INF/web.xml</webXml>

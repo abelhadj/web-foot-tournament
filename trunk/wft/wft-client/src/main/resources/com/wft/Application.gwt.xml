@@ -4,7 +4,7 @@
 	<inherits name='com.google.gwt.user.User' />
 
 	<!--  inherit css based theme -->
-	<inherits name='com.google.gwt.user.theme.standard.Standard' />
+	<inherits name='com.google.gwt.user.theme.standard.Standard' />	
 
 	<!-- Inherits smartGWT                                      -->
 	<inherits name="com.smartgwt.SmartGwt" />
