@@ -103,7 +103,7 @@
 					<logLevel>INFO</logLevel>
 					<style>DETAILED</style>
 					<gwtVersion>${gwtVersion}</gwtVersion>
-					<port>8888</port>
+					<port>8080</port>
 					<extraJvmArgs>-d32 -Xmx1024m</extraJvmArgs>
 
 					<output>${basedir}/war</output>
