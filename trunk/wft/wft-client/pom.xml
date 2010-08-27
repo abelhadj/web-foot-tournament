@@ -13,6 +13,10 @@
 	<name>WebFootTournament client part</name>
 	<description>Client part of WebFootTournament made in GWT</description>
 
+	<properties>
+		<gwt.noserver>true</gwt.noserver>
+	</properties>
+
 	<dependencies>
 		<!-- GWT deps (from central repo) -->
 		<dependency>
@@ -25,22 +29,19 @@
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
 			<version>${gwtVersion}</version>
-			<scope>provided</scope>
+			<!-- <scope>provided</scope> -->
 		</dependency>
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-dev</artifactId>
 			<version>${gwtVersion}</version>
-			<classifier>${platform}-libs</classifier>
-			<type>zip</type>
-			<scope>provided</scope>
+			<!-- <classifier>${platform}-libs</classifier> <type>zip</type> <scope>provided</scope> -->
 		</dependency>
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-dev</artifactId>
 			<version>${gwtVersion}</version>
-			<classifier>${platform}</classifier>
-			<scope>provided</scope>
+			<!-- <classifier>${platform}</classifier> <scope>provided</scope> -->
 		</dependency>
 
 		<!-- model and persistence -->
@@ -104,7 +105,7 @@
 					<style>DETAILED</style>
 					<gwtVersion>${gwtVersion}</gwtVersion>
 					<port>8080</port>
-					<extraJvmArgs>-d32 -Xmx1024m</extraJvmArgs>
+					<extraJvmArgs>-Xmx1024m</extraJvmArgs>
 
 					<output>${basedir}/war</output>
 					<webXml>${basedir}/war/WEB-INF/web.xml</webXml>
@@ -128,6 +129,12 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
+					<webResources>
+						<resource>
+							<!-- this is relative to the pom.xml directory -->
+							<directory>src/main/webapp</directory>
+						</resource>
+					</webResources>
 					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
 					<warSourceDirectory>${basedir}/war</warSourceDirectory>
 					<warSourceExcludes>.gwt-tmp/**,WEB-INF/lib/gwt-user$</warSourceExcludes>
@@ -148,71 +155,25 @@
 			<!-- (this is a replacement for the old "automatic" mode - useful if you 
 				don't have GWT installed already, or you just want a maven way to handle 
 				gwt deps) -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>unpack</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-						<configuration>
-							<artifactItems>
-								<artifactItem>
-									<groupId>com.google.gwt</groupId>
-									<artifactId>gwt-dev</artifactId>
-									<version>${gwtVersion}</version>
-									<classifier>${platform}-libs</classifier>
-									<type>zip</type>
-									<overWrite>false</overWrite>
-									<outputDirectory>${settings.localRepository}/com/google/gwt/gwt-dev/${gwtVersion}</outputDirectory>
-								</artifactItem>
-							</artifactItems>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-dependency-plugin</artifactId> 
+				<executions> <execution> <id>unpack</id> <phase>compile</phase> <goals> <goal>unpack</goal> 
+				</goals> <configuration> <artifactItems> <artifactItem> <groupId>com.google.gwt</groupId> 
+				<artifactId>gwt-dev</artifactId> <version>${gwtVersion}</version> <classifier>${platform}-libs</classifier> 
+				<type>zip</type> <overWrite>false</overWrite> <outputDirectory>${settings.localRepository}/com/google/gwt/gwt-dev/${gwtVersion}</outputDirectory> 
+				</artifactItem> </artifactItems> </configuration> </execution> </executions> 
+				</plugin> -->
 		</plugins>
 	</build>
 
 	<!-- profiles (with activation per platform) -->
 	<profiles>
-		<profile>
-			<id>gwt-dev-windows</id>
-			<properties>
-				<platform>windows</platform>
-			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-				<os>
-					<family>Windows</family>
-				</os>
-			</activation>
-		</profile>
-		<profile>
-			<id>gwt-dev-mac</id>
-			<properties>
-				<platform>mac</platform>
-			</properties>
-			<activation>
-				<os>
-					<family>mac</family>
-				</os>
-			</activation>
-		</profile>
-		<profile>
-			<id>gwt-dev-linux</id>
-			<properties>
-				<platform>linux</platform>
-			</properties>
-			<activation>
-				<os>
-					<name>Linux</name>
-				</os>
-			</activation>
-		</profile>
+		<!-- <profile> <id>gwt-dev-windows</id> <properties> <platform>windows</platform> 
+			</properties> <activation> <activeByDefault>true</activeByDefault> <os> <family>Windows</family> 
+			</os> </activation> </profile> <profile> <id>gwt-dev-mac</id> <properties> 
+			<platform>mac</platform> </properties> <activation> <os> <family>mac</family> 
+			</os> </activation> </profile> <profile> <id>gwt-dev-linux</id> <properties> 
+			<platform>linux</platform> </properties> <activation> <os> <name>Linux</name> 
+			</os> </activation> </profile> -->
 		<profile>
 			<id>debug</id>
 			<!-- profil permettant de debugger le tomcat les logs sont dans consoleWeb\target\tomcat5x\cargo.log -->

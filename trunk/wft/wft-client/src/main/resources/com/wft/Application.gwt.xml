@@ -10,7 +10,7 @@
 	<inherits name="com.smartgwt.SmartGwt" />
 	<!-- Gilead light entity -->
 	<inherits name='net.sf.gilead.Adapter4Gwt15' />
-
+	
 	<source path="model" />
 	<source path="client" />
 	<source path="services"/>

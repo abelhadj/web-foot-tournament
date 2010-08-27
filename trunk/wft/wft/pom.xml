@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<parent>
 		<groupId>com.google.web-foot-tournament</groupId>
 		<artifactId>wft-parent</artifactId>
@@ -9,17 +10,17 @@
 	<artifactId>wft</artifactId>
 	<packaging>war</packaging>
 	<name>WebFootTournament</name>
-	
+
 	<dependencies>
-	
-	    <!--  GWT deps (from central repo) -->
+
+		<!-- GWT deps (from central repo) -->
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-servlet</artifactId>
 			<version>${gwtVersion}</version>
 			<scope>runtime</scope>
 		</dependency>
-	
+
 		<!-- model and persistence -->
 		<dependency>
 			<groupId>${groupId}</groupId>
@@ -31,45 +32,45 @@
 			<artifactId>wft-service</artifactId>
 			<version>${version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>${groupId}</groupId>
 			<artifactId>wft-client</artifactId>
 			<version>${version}</version>
 			<type>war</type>
 			<scope>runtime</scope>
-		</dependency>		
-		
-		
-		<!--  test -->
+		</dependency>
+
+
+		<!-- test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.4</version>
 			<scope>test</scope>
 		</dependency>
-		
-		<!-- GWT SL for spring integration on server side -->		
+
+		<!-- GWT SL for spring integration on server side -->
 		<dependency>
 			<groupId>net.sf.gwt-widget</groupId>
 			<artifactId>gwt-sl</artifactId>
 			<version>1.1</version>
-                </dependency>
-	
-		<!-- Spring web mvc for dispatcher servlet -->		
-		<dependency>
-		   <groupId>org.springframework</groupId>
-  			<artifactId>spring-webmvc</artifactId>		
-			<version>${spring.mvc.version}</version>
 		</dependency>
 
-		
+		<!-- Spring web mvc for dispatcher servlet -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.web.version}</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<!-- For the association between GWT and hibernate -->
 		<dependency>
 			<groupId>net.sf.gilead</groupId>
@@ -81,7 +82,7 @@
 			<artifactId>hibernate-util</artifactId>
 			<version>${gilead.version}</version>
 		</dependency>
-		
+
 		<!-- spring security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -93,33 +94,33 @@
 			<artifactId>spring-security-core-tiger</artifactId>
 			<version>${spring.security.version}</version>
 		</dependency>
-		
+
 		<!-- for annotations -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.5.4</version>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>org.slf4j</groupId>
-		    <artifactId>slf4j-log4j12</artifactId>
-		    <version>1.4.2</version>
-		</dependency> 		
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.4.2</version>
+		</dependency>
 		<dependency>
-		    <groupId>org.slf4j</groupId>
-		    <artifactId>slf4j-api</artifactId>
-		    <version>1.4.2</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.4.2</version>
 		</dependency>
 
-			<dependency>
-				<groupId>mysql</groupId>
-				<artifactId>mysql-connector-java</artifactId>
-				<version>5.1.6</version>
-			</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
 
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -135,7 +136,7 @@
 							<url>file:///${project.build.directory}/../tomcat-archive/apache-tomcat-6.0.26.zip</url>
 							<installDir>${project.build.directory}/tomcat-install-dir/</installDir>
 						</zipUrlInstaller>
-                        <timeout>360000</timeout>
+						<timeout>360000</timeout>
 					</container>
 					<configuration>
 						<home>${project.build.directory}/${tomcat.containerId}/container</home>
@@ -148,15 +149,12 @@
 			</plugin>
 		</plugins>
 	</build>
-	
-	<!--  profiles (with activation per platform) -->
+
+	<!-- profiles (with activation per platform) -->
 	<profiles>
 		<profile>
 			<id>debug</id>
-			<!-- 
-				profil permettant de debugger le tomcat 
-				les logs sont dans consoleWeb\target\tomcat5x\cargo.log
-			-->
+			<!-- profil permettant de debugger le tomcat les logs sont dans consoleWeb\target\tomcat5x\cargo.log -->
 			<activation>
 				<property>
 					<name>debug</name>
@@ -178,7 +176,8 @@
 							<configuration>
 								<properties>
 									<cargo.jvmargs>
-										-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=7456
+										-Xdebug -Xnoagent -Djava.compiler=NONE
+										-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=7456
 									</cargo.jvmargs>
 								</properties>
 							</configuration>
@@ -215,7 +214,7 @@
 					</plugin>
 				</plugins>
 			</build>
-		</profile>		
-		
+		</profile>
+
 	</profiles>
 </project>
