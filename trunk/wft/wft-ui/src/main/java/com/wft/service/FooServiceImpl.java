@@ -16,11 +16,11 @@ import com.wft.model.Foo;
 
 
 
-@Service
+//@Service
 public class FooServiceImpl implements FooService {
 	
 	private final static Log logger = LogFactory.getLog(FooServiceImpl.class);
-	@PersistenceContext
+//	@PersistenceContext
 	private EntityManager em;
 
 	@Secured("ROLE_ADMIN")

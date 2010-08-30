@@ -1,15 +1,12 @@
 package com.wft.service.services;
 
-import com.google.gwt.user.client.rpc.RemoteService;
-import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.wft.model.ReturnMemento;
 
 /**
  * Authentication service.
  * 
  */
-@RemoteServiceRelativePath("AuthenticationService.rpc")
-public interface AuthenticationService extends RemoteService {
+public interface AuthenticationService {
 
 	/**
 	 * Authenticates user.

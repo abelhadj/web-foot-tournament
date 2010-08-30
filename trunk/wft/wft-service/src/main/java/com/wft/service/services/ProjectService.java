@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.security.annotation.Secured;
 
-import com.google.gwt.user.client.rpc.RemoteService;
-import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.wft.model.Project;
 import com.wft.service.services.exception.ServiceSecurityException;
 
@@ -14,8 +12,7 @@ import com.wft.service.services.exception.ServiceSecurityException;
  * 
  * @version 1.0
  */
-@RemoteServiceRelativePath("ProjectService.rpc")
-public interface ProjectService extends RemoteService
+public interface ProjectService
 {
 
     /**

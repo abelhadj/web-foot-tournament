@@ -15,12 +15,17 @@
  */
 package com.wft.ui;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.vaadin.Application;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.Button.ClickEvent;
+import com.wft.service.FooService;
+import com.wft.service.services.AuthenticationService;
 
 /**
  * The Application's "main" class
@@ -28,16 +33,24 @@ import com.vaadin.ui.Window;
 @Component(value = "myVaadinApplication")
 @Scope(value = "prototype")
 @SuppressWarnings("serial")
-public class MyVaadinApplication extends Application
-{
-    private Window window;
+public class MyVaadinApplication extends Application {
+	private Window window;
 
-    @Override
-    public void init()
-    {
-        window = new Window("My Vaadin Application");
-        setMainWindow(window);
-        window.addComponent(new Button("Click Me"));
-    }
-    
+	@Autowired
+	private transient AuthenticationService authenticationService;
+
+	@Override
+	public void init() {
+		window = new Window("My Vaadin Application");
+		setMainWindow(window);
+		Button b = new Button("Click Me");
+		b.addListener(new ClickListener() {
+			
+			public void buttonClick(ClickEvent event) {
+				authenticationService.authenticate("admin", "admin");
+			}
+		});
+		window.addComponent(b);
+	}
+
 }
