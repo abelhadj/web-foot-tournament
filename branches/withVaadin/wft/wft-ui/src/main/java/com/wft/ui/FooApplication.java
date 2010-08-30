@@ -9,19 +9,19 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.security.AccessDeniedException;
 import org.springframework.stereotype.Component;
 
-import com.vaadin.incubator.spring.model.Foo;
-import com.vaadin.incubator.spring.util.ApplicationHelper;
-import com.vaadin.incubator.spring.util.BaseApplication;
-import com.vaadin.incubator.spring.util.VaadinApplicationObjectSupport;
 import com.vaadin.terminal.ExternalResource;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Form;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Window.Notification;
+import com.wft.model.Foo;
+import com.wft.util.ApplicationHelper;
+import com.wft.util.BaseApplication;
+import com.wft.util.VaadinApplicationObjectSupport;
 
 @Component(value = "fooApplication")
 @Scope(value = "prototype")
@@ -86,7 +86,7 @@ public class FooApplication extends BaseApplication implements ClickListener, Fo
 		}
 	}
 
-	@Override
+//	@Override
 	public void buttonClick(ClickEvent event) {
 		if(logger.isDebugEnabled()) {
 			logger.debug("buttonClick(" + event.getButton().getData() + ")");
@@ -101,17 +101,17 @@ public class FooApplication extends BaseApplication implements ClickListener, Fo
 		}
 	}
 
-	@Override
+//	@Override
 	public void fooClicked(Foo model) {
 		form.update(model);
 	}
 
-	@Override
+//	@Override
 	public void fooAdded(Foo model) {
 		table.refresh();
 	}
 
-	@Override
+//	@Override
 	public void fooUpdated(Foo model) {
 		table.refresh();
 	}

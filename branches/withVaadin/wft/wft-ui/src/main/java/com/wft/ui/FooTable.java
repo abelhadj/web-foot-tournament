@@ -14,11 +14,11 @@ import com.vaadin.data.Item;
 import com.vaadin.data.util.IndexedContainer;
 import com.vaadin.event.ItemClickEvent;
 import com.vaadin.event.ItemClickEvent.ItemClickListener;
-import com.vaadin.incubator.spring.model.Foo;
-import com.vaadin.incubator.spring.service.FooService;
-import com.vaadin.incubator.spring.util.ApplicationHelper;
-import com.vaadin.incubator.spring.util.VaadinApplicationObjectSupport;
 import com.vaadin.ui.Table;
+import com.wft.model.Foo;
+import com.wft.service.FooService;
+import com.wft.util.ApplicationHelper;
+import com.wft.util.VaadinApplicationObjectSupport;
 
 @Configurable(preConstruction = true)
 public class FooTable extends Table implements ItemClickListener {

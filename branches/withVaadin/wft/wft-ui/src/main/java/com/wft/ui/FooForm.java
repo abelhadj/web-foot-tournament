@@ -8,17 +8,17 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 
-import com.vaadin.incubator.spring.model.Foo;
-import com.vaadin.incubator.spring.service.FooService;
-import com.vaadin.incubator.spring.util.BeanValidationForm;
-import com.vaadin.incubator.spring.util.VaadinApplicationObjectSupport;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Window.Notification;
+import com.wft.model.Foo;
+import com.wft.service.FooService;
+import com.wft.util.BeanValidationForm;
+import com.wft.util.VaadinApplicationObjectSupport;
 
 @Configurable(preConstruction = true)
 public class FooForm extends BeanValidationForm<Foo> implements ClickListener {

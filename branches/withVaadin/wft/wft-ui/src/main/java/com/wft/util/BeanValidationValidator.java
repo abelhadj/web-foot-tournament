@@ -46,7 +46,7 @@ public class BeanValidationValidator implements Validator {
 		}
 	}
 	
-	@Override
+//	@Override
 	public boolean isValid(Object value) {
 		try {
 			validate(value);
@@ -76,7 +76,7 @@ public class BeanValidationValidator implements Validator {
 		return getErrorMessage(null, NotNull.class);
 	}
 
-	@Override
+//	@Override
 	public void validate(final Object value) throws InvalidValueException {
 		try {
 			method.setValue(value);
@@ -104,12 +104,12 @@ public class BeanValidationValidator implements Validator {
 				final ConstraintViolation<?> violation = (ConstraintViolation<?>)v;
 				String msg = factory.getMessageInterpolator().interpolate(violation.getMessageTemplate(), new Context() {
 
-					@Override
+//					@Override
 					public ConstraintDescriptor<?> getConstraintDescriptor() {
 						return violation.getConstraintDescriptor();
 					}
 
-					@Override
+//					@Override
 					public Object getValidatedValue() {
 						return method.getValue();
 					}
@@ -155,12 +155,12 @@ public class BeanValidationValidator implements Validator {
 				}
 				String msg = factory.getMessageInterpolator().interpolate(messageTemplate, new Context() {
 					
-					@Override
+//					@Override
 					public Object getValidatedValue() {
 						return value;
 					}
 					
-					@Override
+//					@Override
 					public ConstraintDescriptor<?> getConstraintDescriptor() {
 						return d;
 					}

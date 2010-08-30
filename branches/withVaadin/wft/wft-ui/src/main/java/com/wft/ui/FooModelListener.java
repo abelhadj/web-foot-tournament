@@ -1,6 +1,7 @@
 package com.wft.ui;
 
-import com.vaadin.incubator.spring.model.Foo;
+import com.wft.model.Foo;
+
 
 public interface FooModelListener {
 	
