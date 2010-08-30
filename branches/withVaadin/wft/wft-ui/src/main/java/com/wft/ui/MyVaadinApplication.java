@@ -15,6 +15,9 @@
  */
 package com.wft.ui;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import com.vaadin.Application;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Window;
@@ -22,6 +25,8 @@ import com.vaadin.ui.Window;
 /**
  * The Application's "main" class
  */
+@Component(value = "myVaadinApplication")
+@Scope(value = "prototype")
 @SuppressWarnings("serial")
 public class MyVaadinApplication extends Application
 {

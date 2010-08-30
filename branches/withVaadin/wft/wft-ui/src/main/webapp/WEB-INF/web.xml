@@ -35,12 +35,12 @@
 	</listener>
 	<servlet>
 		<servlet-name>Test Application</servlet-name>
-		<servlet-class>com.vaadin.incubator.spring.servlet.SpringApplicationServlet</servlet-class>
+		<servlet-class>com.wft.servlet.SpringApplicationServlet</servlet-class>
 		<init-param>
 			<description>Vaadin application bean to start</description>
 			<param-name>applicationBean</param-name>
-			<param-value>fooApplication</param-value>
-		</init-param>		
+			<param-value>myVaadinApplication</param-value>
+		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Test Application</servlet-name>

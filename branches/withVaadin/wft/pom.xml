@@ -77,8 +77,7 @@
 	<modules>
 		<module>wft-model</module>
 		<module>wft-service</module>
-		<module>wft-client</module>
-		<module>wft</module>
+		<module>wft-ui</module>
 	</modules>
 
 	<build>
