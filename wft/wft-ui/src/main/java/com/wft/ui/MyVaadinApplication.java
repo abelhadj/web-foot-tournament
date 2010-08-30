@@ -21,10 +21,9 @@ import org.springframework.stereotype.Component;
 
 import com.vaadin.Application;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Window;
-import com.vaadin.ui.Button.ClickEvent;
-import com.wft.service.FooService;
 import com.wft.service.services.AuthenticationService;
 
 /**
