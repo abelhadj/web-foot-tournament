@@ -40,7 +40,7 @@
 		<init-param>
 			<description>Vaadin application bean to start</description>
 			<param-name>applicationBean</param-name>
-			<param-value>myVaadinApplication</param-value>
+			<param-value>webFootApplication</param-value>
 		</init-param>
 	</servlet>
 	
