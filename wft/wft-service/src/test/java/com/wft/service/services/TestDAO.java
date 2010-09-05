@@ -56,10 +56,6 @@ public class TestDAO extends
 	}
 
 	public void test1() {
-		System.out.println("Session Factory : "+sessionFactory);
-		@SuppressWarnings("unused")
-		SessionFactoryImpl sfImpl = (SessionFactoryImpl)sessionFactory;
-		
 		Administrator admin = new Administrator("admin", "admin");
 		User user1 = new User("user1", "user1");
 		User user2 = new User("user2", "user2");

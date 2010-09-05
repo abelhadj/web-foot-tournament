@@ -9,6 +9,8 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.wft.service.dao.IDao;
 /**
@@ -17,6 +19,7 @@ import com.wft.service.dao.IDao;
  * operations.</p>
  *
  */
+@Transactional(propagation = Propagation.MANDATORY)
 public class BaseDaoHibernate <T> extends HibernateDAO implements IDao <T> 
 {
     /**
