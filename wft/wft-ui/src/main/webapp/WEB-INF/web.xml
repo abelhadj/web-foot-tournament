@@ -35,33 +35,49 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	<servlet>
-		<servlet-name>Test Application</servlet-name>
+		<servlet-name>Welcome Login Application</servlet-name>
 		<servlet-class>com.wft.servlet.SpringApplicationServlet</servlet-class>
 		<init-param>
 			<description>Vaadin application bean to start</description>
 			<param-name>applicationBean</param-name>
-			<param-value>webFootApplication</param-value>
+			<param-value>welcomeLoginApplication</param-value>
 		</init-param>
 	</servlet>
 	
     <servlet-mapping>
-        <servlet-name>Test Application</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <servlet-name>Welcome Login Application</servlet-name>
+        <url-pattern>/login/*</url-pattern>
     </servlet-mapping>
 	
+	<servlet>
+		<servlet-name>Web Foot Tournament Application</servlet-name>
+		<servlet-class>com.wft.servlet.SpringApplicationServlet</servlet-class>
+		<init-param>
+			<description>Vaadin application bean to start</description>
+			<param-name>applicationBean</param-name>
+			<param-value>webFootTournamentApplication</param-value>
+		</init-param>
+	</servlet>
+
+    <servlet-mapping>
+        <servlet-name>Web Foot Tournament Application</servlet-name>
+        <url-pattern>/app/*</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Welcome Login Application</servlet-name>
+		<url-pattern>/VAADIN/*</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
 	
 	<!--
 	<servlet-mapping>
 		<servlet-name>Test Application</servlet-name>
 		<url-pattern>/app/*</url-pattern>
 	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Test Application</servlet-name>
-		<url-pattern>/VAADIN/*</url-pattern>
-	</servlet-mapping>
-	<welcome-file-list>
-		<welcome-file>loginform.jsp</welcome-file>
-	</welcome-file-list>
 	-->
 	
 	<session-config>

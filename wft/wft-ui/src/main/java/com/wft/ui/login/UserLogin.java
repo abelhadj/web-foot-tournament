@@ -2,8 +2,8 @@ package com.wft.ui.login;
 
 public class UserLogin {
 
-	private String login;
-	private String password;
+	private String login = "";
+	private String password = "";
 
 	public String getLogin() {
 		return login;
