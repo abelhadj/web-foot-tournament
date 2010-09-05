@@ -13,8 +13,6 @@ import com.vaadin.data.util.BeanItem;
 import com.vaadin.event.Action;
 import com.vaadin.event.Action.Handler;
 import com.vaadin.event.ShortcutAction;
-import com.vaadin.terminal.ExternalResource;
-import com.vaadin.terminal.Resource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.DefaultFieldFactory;
@@ -25,7 +23,6 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.Window.Notification;
 import com.wft.model.ReturnMemento;
 import com.wft.service.services.AuthenticationService;
-import com.wft.ui.WFTMainWindow;
 
 @Component(value = "wftLoginForm")
 @Scope(value = "prototype")
@@ -42,9 +39,6 @@ public class WFTLoginForm extends Form {
 
 	@Autowired
 	private transient AuthenticationService authenticationService;
-
-	@Autowired
-	private transient WFTMainWindow wftMainWindow;
 
 	public WFTLoginForm() {
 		super();
@@ -144,7 +138,8 @@ public class WFTLoginForm extends Form {
 			URL logoutURL;
 			try {
 				String file = url.getFile();
-				String logoutFile = file.substring(0, file.indexOf("/login")) + "/app";
+				String logoutFile = file.substring(0, file.indexOf("/login"))
+						+ "/app";
 				logoutURL = new URL(url.getProtocol(), url.getHost(),
 						url.getPort(), logoutFile);
 				System.out.println("logoutURL = " + logoutURL.toString());
