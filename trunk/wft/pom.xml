@@ -9,7 +9,7 @@
 	<name>WebFootTournament parent pom</name>
 	<description>Pom parent of WebFootTournament</description>
 
-	<!--  include pluginRepository and repository for GWT-Maven -->
+	<!-- include pluginRepository and repository for GWT-Maven -->
 	<pluginRepositories>
 		<pluginRepository>
 			<id>gwt-maven-plugins</id>
@@ -22,6 +22,10 @@
 	</pluginRepositories>
 	<repositories>
 		<repository>
+			<id>vaadin-addons</id>
+			<url>http://maven.vaadin.com/vaadin-addons</url>
+		</repository>
+		<repository>
 			<id>codehaus</id>
 			<url>https://nexus.codehaus.org/content/repositories/releases/</url>
 		</repository>
@@ -32,7 +36,7 @@
 		<repository>
 			<id>smartclient</id>
 			<name>smartclient</name>
-			<!--       	<url>http://smartgwtsnap.rorschach.de</url> -->
+			<!-- <url>http://smartgwtsnap.rorschach.de</url> -->
 			<url>http://www.smartclient.com/maven2</url>
 		</repository>
 		<repository>
@@ -53,14 +57,14 @@
 	</repositories>
 
 	<properties>
-		<!--  convenience to define GWT version in one place -->
+		<!-- convenience to define GWT version in one place -->
 		<gwtVersion>2.0.4</gwtVersion>
 
 		<java.awt.headless>true</java.awt.headless>
 		<cargo.wait>false</cargo.wait>
-		
+
 		<tomcat.containerId>tomcat6x</tomcat.containerId>
-		
+
 		<hibernate.version>3.2.7.ga</hibernate.version>
 		<hibernate.annotations.version>3.4.0.GA</hibernate.annotations.version>
 		<spring.version>2.5.6</spring.version>
@@ -68,9 +72,7 @@
 		<spring.security.version>2.0.4</spring.security.version>
 		<gilead.version>1.2.3</gilead.version>
 		<smartgwt.version>1.1</smartgwt.version>
-		<!-- 
-		<smartgwt.version>2.2</smartgwt.version>
-		-->
+		<!-- <smartgwt.version>2.2</smartgwt.version> -->
 		<cargo.maven.version>1.0.3</cargo.maven.version>
 	</properties>
 
@@ -82,7 +84,7 @@
 
 	<build>
 		<plugins>
-			<!--  tell the compiler we can use 1.5 -->
+			<!-- tell the compiler we can use 1.5 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
