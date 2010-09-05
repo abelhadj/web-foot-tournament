@@ -12,7 +12,12 @@
 	-->
 	<security:http entry-point-ref="authenticationProcessingFilterEntryPoint"
 		create-session="always"   access-denied-page="/index.html" session-fixation-protection="none">
-		<security:intercept-url pattern="/com.wft.Application/Application.html" access="ROLE_USER"/>
+		<!-- TODO : Review the security -->
+		<security:intercept-url pattern="/app" access="ROLE_USER"/>
+		<security:intercept-url pattern="/app/**" access="ROLE_USER"/>
+		<!-- 
+		<security:intercept-url pattern="**" filters="none"/>
+		-->
 		<security:form-login login-page="/index.html" />
 	</security:http>
 
