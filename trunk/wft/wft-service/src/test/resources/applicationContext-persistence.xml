@@ -9,13 +9,26 @@
 	-->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:p="http://www.springframework.org/schema/p"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans 
-	   					   http://www.springframework.org/schema/beans/spring-beans.xsd
-                           http://www.springframework.org/schema/tx
-                           http://www.springframework.org/schema/tx/spring-tx.xsd">
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd            
+	                       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd            
+	                       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd            
+	                       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<context:property-placeholder location="classpath*:*.properties" />
+
+	<!-- Turn on AspectJ @Configurable support -->
+	<context:spring-configured />
+
+	<context:component-scan base-package="com.wft" />
+
+	<!-- Turn on @Autowired, @PostConstruct etc support -->
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<bean
+		class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
 
 	<!-- le gestionnaire de BLOB / CLOB de chez Spring -->
 	<bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" />
@@ -59,9 +72,11 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
+	<tx:annotation-driven mode="aspectj" transaction-manager="transactionManager" />
 	<!-- TODO: Switch to annotations for transactions
 	<tx:annotation-driven/>
 	-->
+	<!-- 
 	<bean id="transactionInterceptor"
 		class="org.springframework.transaction.interceptor.TransactionInterceptor">
 		<property name="transactionManager" ref="transactionManager" />
@@ -85,7 +100,9 @@
 			</list>
 		</property>
 	</bean>
+	-->
 
+	<!-- 
 	<bean id="projectDAO" class="com.wft.service.dao.impl.ProjectDAO">
 		<constructor-arg>
 			<value>com.wft.model.Project</value>
@@ -103,6 +120,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	-->
 
 
 	<!--

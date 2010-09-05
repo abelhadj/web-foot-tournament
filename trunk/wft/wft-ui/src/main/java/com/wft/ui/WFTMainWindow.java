@@ -15,11 +15,19 @@
  */
 package com.wft.ui;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.Button.ClickEvent;
+import com.wft.service.services.AuthenticationService;
 
 /**
  * The Application's "main" class
@@ -29,10 +37,36 @@ import com.vaadin.ui.Window;
 @SuppressWarnings("serial")
 public class WFTMainWindow extends Window {
 
+	@Autowired
+	private transient AuthenticationService authenticationService;
+
 	public WFTMainWindow() {
 		super();
-		Label l = new Label("Test");
-		addComponent(l);
+		Button b = new Button("Logout");
+		b.addListener(new ClickListener() {
+			
+			public void buttonClick(ClickEvent event) {
+				authenticationService.logout();
+
+				URL url = getApplication().getMainWindow().getURL();
+				URL logoutURL;
+				try {
+					String file = url.getFile();
+					String logoutFile = file.substring(0, file.indexOf("/app"))
+							+ "/login";
+					logoutURL = new URL(url.getProtocol(), url.getHost(),
+							url.getPort(), logoutFile);
+					System.out.println("logoutURL = " + logoutURL.toString());
+					getApplication().setLogoutURL(logoutURL.toString());
+					getApplication().close();
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		});
+		addComponent(b);
 	}
 
 }
