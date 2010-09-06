@@ -11,14 +11,14 @@
 		set at the completion of the authenticate call.
 	-->
 	<security:http entry-point-ref="authenticationProcessingFilterEntryPoint"
-		create-session="always"   access-denied-page="/index.html" session-fixation-protection="none">
+		create-session="always"   access-denied-page="/login.html" session-fixation-protection="none">
 		<!-- TODO : Review the security -->
 		<security:intercept-url pattern="/app" access="ROLE_USER"/>
 		<security:intercept-url pattern="/app/**" access="ROLE_USER"/>
 		<!-- 
 		<security:intercept-url pattern="**" filters="none"/>
 		-->
-		<security:form-login login-page="/index.html" />
+		<security:form-login login-page="/login.html" />
 	</security:http>
 
 

@@ -37,8 +37,12 @@ public class AuthenticationServiceImpl extends ServiceImpl<User> implements
 	
 	public void afterPropertiesSet() throws Exception {
 		this.dao = userDAO;
-		Administrator admin = new Administrator("admin", "admin");
-		User user = new User("user", "user");
+		Administrator admin = new Administrator();
+		admin.setLogin("admin");
+		admin.setPassword("admin");
+		User user = new User();
+		user.setLogin("user");
+		user.setPassword("user");
 		this.getDao().add(admin);
 		this.getDao().add(user);
 	}

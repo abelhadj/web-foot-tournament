@@ -1,5 +1,7 @@
 package com.wft.service.services;
 
+import org.springframework.security.annotation.Secured;
+
 import com.wft.model.ReturnMemento;
 
 /**
@@ -20,5 +22,6 @@ public interface AuthenticationService {
 	/**
 	 * Terminates a user's security session.
 	 */
+	@Secured("ROLE_USER")
 	void logout();
 }

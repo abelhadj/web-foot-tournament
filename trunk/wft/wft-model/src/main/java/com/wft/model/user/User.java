@@ -20,48 +20,35 @@ import org.hibernate.annotations.ForceDiscriminator;
 import net.sf.gilead.pojo.java5.LightEntity;
 
 @Entity
-@Table(name = "USER")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="DTYPE", discriminatorType=DiscriminatorType.STRING, columnDefinition="VARCHAR(32) DEFAULT \"ROLE_USER\"", length=32)
-@DiscriminatorValue(value="ROLE_USER")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "DTYPE", discriminatorType = DiscriminatorType.STRING, columnDefinition = "VARCHAR(32) DEFAULT \"ROLE_USER\"", length = 32)
+@DiscriminatorValue(value = "ROLE_USER")
 @ForceDiscriminator
 public class User extends LightEntity implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -6107680353319244730L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	@Column(name = "LOGIN")
 	private String login;
 
-	@Column(name = "PASSWORD")
 	private String password;
 
-	@Column(name = "FIRSTNAME")
 	private String firstName;
 
-	@Column(name = "LASTNAME")
 	private String lastName;
 
-	@Column(name = "BIRTHDATE")
 	private Date birthDate;
 
-	@Column(name = "MAILADRESS")
 	private String mailAdress;
 
 	public User() {
 		super();
-	}
-
-	public User(String login, String password) {
-		super();
-		this.login = login;
-		this.password = password;
 	}
 
 	public Integer getId() {

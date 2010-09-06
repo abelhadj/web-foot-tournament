@@ -12,61 +12,58 @@ import javax.persistence.Table;
 import net.sf.gilead.pojo.java5.LightEntity;
 
 @Entity
-@Table(name="AUTHORS")
-public class Authors extends LightEntity implements Serializable
-{
-    /**
-     * serial id
-     */
-    private static final long serialVersionUID = -5791597632140578061L;
+@Table(name = "AUTHORS")
+public class Authors extends LightEntity implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
-    
-    /**
-     * name of the project
-     */
-    @Column(name="NAME")
-    private String name;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * Empty constructor
-     */
-    public Authors()
-    {
-        
-    }
-    
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name)
-    {
-        this.name = name;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
 
-    /**
-     * @return the name
-     */
-    public String getName()
-    {
-        return name;
-    }
+	/**
+	 * name of the project
+	 */
+	@Column(name = "NAME")
+	private String name;
 
-    /**
-     * @param id the id to set
-     */
-    public void setId(Integer id)
-    {
-        this.id = id;
-    }
+	/**
+	 * Empty constructor
+	 */
+	public Authors() {
 
-    /**
-     * @return the id
-     */
-    public Integer getId()
-    {
-        return id;
-    }    
+	}
+
+	/**
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
 }

@@ -19,7 +19,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.vaadin.terminal.ThemeResource;
 import com.vaadin.ui.Window;
+import com.wft.ui.welcome.WFTWelcomeWindow;
 import com.wft.util.BaseApplication;
 
 /**
@@ -28,21 +30,13 @@ import com.wft.util.BaseApplication;
 @Component(value = "webFootTournamentApplication")
 @Scope(value = "prototype")
 @SuppressWarnings("serial")
-public class WebFootTournamentApplication extends BaseApplication {
-	private Window window;
-	
+public class WebFootTournamentApplication extends BaseApplication {	
 	@Autowired
-	private WFTMainWindow wftMainWindow;
+	private transient WFTWelcomeWindow wftWelcomeWindow;
 
 	@Override
 	public void init() {
-		window = new Window("Test");
-
-
-        window.addWindow(wftMainWindow);
-
-		setMainWindow(window);
-
+		setMainWindow(wftWelcomeWindow);
 	}
 
 }
