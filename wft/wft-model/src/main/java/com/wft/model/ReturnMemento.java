@@ -5,131 +5,122 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Generic class used to encapsulate the result of a method
- * The map of errors could be used on client side with the dynamicForm and its 
- * method setErrors.
+ * Generic class used to encapsulate the result of a method The map of errors
+ * could be used on client side with the dynamicForm and its method setErrors.
  * 
  */
-public class ReturnMemento implements Serializable
-{
-    /**
-     * serial id
-     */
-    private static final long serialVersionUID = 2451548934252076802L;
+public class ReturnMemento implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * generic success code
-     */
-    public static final int CODE_SUCCESS=0;
-    
-    /**
-     * generic error code
-     */
-    public static final int CODE_ERROR=1;
-    
-    
-    /**
-     * error code
-     */
-    private int code;
+	/**
+	 * generic success code
+	 */
+	public static final int CODE_SUCCESS = 0;
 
-    /**
-     * subcode used to add some details about the error
-     */
-    private int subCode;
+	/**
+	 * generic error code
+	 */
+	public static final int CODE_ERROR = 1;
 
-    /**
-     * a human readable message
-     */
-    private String message;
+	/**
+	 * error code
+	 */
+	private int code;
 
-    /**
-     * the map of errors that could be used for SmartGwt DynamicForm
-     */
-    private Map<String, String> errors = new HashMap<String, String>();
+	/**
+	 * subcode used to add some details about the error
+	 */
+	private int subCode;
 
-    /**
-     * Empty constructor
-     * needed if you want to implement {@link Serializable}: http://java.sun.com/j2se/1.4.2/docs/api/java/io/Serializable.html 
-     */
-    public ReturnMemento()
-    {
-        
-    }
-    
-    /**
-     * Constructor with code and subcode
-     * @param code
-     * @param subCode
-     */
-    public ReturnMemento (int code, int subCode)
-    {
-        this.code=code;
-        this.subCode=subCode;
-    }
+	/**
+	 * a human readable message
+	 */
+	private String message;
 
+	/**
+	 * the map of errors that could be used for SmartGwt DynamicForm
+	 */
+	private Map<String, String> errors = new HashMap<String, String>();
 
-    /**
-     * @return the code
-     */
-    public int getCode()
-    {
-        return code;
-    }
+	/**
+	 * Empty constructor needed if you want to implement {@link Serializable}:
+	 * http://java.sun.com/j2se/1.4.2/docs/api/java/io/Serializable.html
+	 */
+	public ReturnMemento() {
 
-    /**
-     * @param code the code to set
-     */
-    public void setCode(int code)
-    {
-        this.code = code;
-    }
+	}
 
-    /**
-     * @return the subCode
-     */
-    public int getSubCode()
-    {
-        return subCode;
-    }
+	/**
+	 * Constructor with code and subcode
+	 * 
+	 * @param code
+	 * @param subCode
+	 */
+	public ReturnMemento(int code, int subCode) {
+		this.code = code;
+		this.subCode = subCode;
+	}
 
-    /**
-     * @param subCode the subCode to set
-     */
-    public void setSubCode(int subCode)
-    {
-        this.subCode = subCode;
-    }
+	/**
+	 * @return the code
+	 */
+	public int getCode() {
+		return code;
+	}
 
-    /**
-     * @return the message
-     */
-    public String getMessage()
-    {
-        return message;
-    }
+	/**
+	 * @param code
+	 *            the code to set
+	 */
+	public void setCode(int code) {
+		this.code = code;
+	}
 
-    /**
-     * @param message the message to set
-     */
-    public void setMessage(String message)
-    {
-        this.message = message;
-    }
+	/**
+	 * @return the subCode
+	 */
+	public int getSubCode() {
+		return subCode;
+	}
 
-    /**
-     * @return the errors
-     */
-    public Map<String, String> getErrors()
-    {
-        return errors;
-    }
+	/**
+	 * @param subCode
+	 *            the subCode to set
+	 */
+	public void setSubCode(int subCode) {
+		this.subCode = subCode;
+	}
 
-    /**
-     * @param errors the errors to set
-     */
-    public void setErrors(Map<String, String> errors)
-    {
-        this.errors = errors;
-    }
+	/**
+	 * @return the message
+	 */
+	public String getMessage() {
+		return message;
+	}
+
+	/**
+	 * @param message
+	 *            the message to set
+	 */
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	/**
+	 * @return the errors
+	 */
+	public Map<String, String> getErrors() {
+		return errors;
+	}
+
+	/**
+	 * @param errors
+	 *            the errors to set
+	 */
+	public void setErrors(Map<String, String> errors) {
+		this.errors = errors;
+	}
 }

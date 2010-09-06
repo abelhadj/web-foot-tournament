@@ -3,8 +3,6 @@ package com.wft.service.services;
 import java.util.List;
 
 import org.springframework.security.annotation.Secured;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.wft.model.Project;
 import com.wft.service.services.exception.ServiceSecurityException;

@@ -6,22 +6,16 @@ import javax.persistence.Entity;
 import org.hibernate.annotations.ForceDiscriminator;
 
 @Entity
-@DiscriminatorValue(value="ROLE_ORGANIZER")
+@DiscriminatorValue(value = "ROLE_ORGANIZER")
 @ForceDiscriminator
 public class Organizer extends User {
-
-	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -3653237723589033376L;
+	private static final long serialVersionUID = 1L;
 
 	public Organizer() {
 		super();
-	}
-
-	public Organizer(String login, String password) {
-		super(login, password);
 	}
 
 }

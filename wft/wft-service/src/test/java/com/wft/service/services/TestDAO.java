@@ -56,9 +56,15 @@ public class TestDAO extends
 	}
 
 	public void test1() {
-		Administrator admin = new Administrator("admin", "admin");
-		User user1 = new User("user1", "user1");
-		User user2 = new User("user2", "user2");
+		Administrator admin = new Administrator();
+		admin.setLogin("admin");
+		admin.setPassword("admin");
+		User user1 = new User();
+		user1.setLogin("user1");
+		user1.setPassword("user1");
+		User user2 = new User();
+		user2.setLogin("user2");
+		user2.setPassword("user2");
 
 		for (User user : userDAO.findAll()) {
 			if (user instanceof Administrator) {

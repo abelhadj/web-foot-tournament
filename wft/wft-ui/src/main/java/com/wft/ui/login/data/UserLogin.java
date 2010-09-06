@@ -1,4 +1,4 @@
-package com.wft.ui.login;
+package com.wft.ui.login.data;
 
 public class UserLogin {
 

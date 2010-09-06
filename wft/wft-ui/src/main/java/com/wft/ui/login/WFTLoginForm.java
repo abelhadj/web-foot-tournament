@@ -23,6 +23,7 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.Window.Notification;
 import com.wft.model.ReturnMemento;
 import com.wft.service.services.AuthenticationService;
+import com.wft.ui.login.data.UserLogin;
 
 @Component(value = "wftLoginForm")
 @Scope(value = "prototype")

@@ -6,22 +6,16 @@ import javax.persistence.Entity;
 import org.hibernate.annotations.ForceDiscriminator;
 
 @Entity
-@DiscriminatorValue(value="ROLE_ADMINISTRATOR")
+@DiscriminatorValue(value = "ROLE_ADMINISTRATOR")
 @ForceDiscriminator
 public class Administrator extends User {
-
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 4070529120457672054L;
-
+	private static final long serialVersionUID = 1L;
 
 	public Administrator() {
 		super();
 	}
 
-
-	public Administrator(String login, String password) {
-		super(login, password);
-	}
 }

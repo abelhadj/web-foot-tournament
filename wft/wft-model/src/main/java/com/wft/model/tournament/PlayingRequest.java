@@ -16,20 +16,24 @@ import net.sf.gilead.pojo.java5.LightEntity;
 
 import com.wft.model.team.Team;
 import com.wft.model.user.Gamer;
+import com.wft.model.user.User;
 
 @Entity
-public class PlayingTeam extends LightEntity implements Serializable {
+public class PlayingRequest extends LightEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
 	@OneToOne(fetch = FetchType.LAZY, cascade = {})
+	private Tournament tournament;
+
+	@OneToOne(fetch = FetchType.LAZY, cascade = {})
 	private Team team;
 
 	@OneToOne(fetch = FetchType.LAZY, cascade = {})
-	private Gamer gamer;
+	private User user;
 
-	public PlayingTeam() {
+	public PlayingRequest() {
 		super();
 	}
 
