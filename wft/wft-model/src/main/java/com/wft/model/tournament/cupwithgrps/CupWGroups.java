@@ -20,6 +20,11 @@ import com.wft.model.tournament.Tournament;
 @ForceDiscriminator
 public class CupWGroups extends Tournament {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@OrderBy(value="groupNumber ASC")
 	private List<CupGroup> cupGroups;

@@ -82,6 +82,7 @@
 				<value>com.wft.model</value>
 				<value>com.wft.model.user</value>
 				<value>com.wft.model.tournament</value>
+				<value>com.wft.model.tournament.game</value>
 				<value>com.wft.model.tournament.cupwithgrps</value>
 				<value>com.wft.model.tournament.league</value>
 				<value>com.wft.model.tournament.simplecup</value>

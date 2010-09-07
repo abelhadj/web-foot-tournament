@@ -20,6 +20,11 @@ import com.wft.model.user.User;
 
 @Entity
 public class PlayingRequest extends LightEntity implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;

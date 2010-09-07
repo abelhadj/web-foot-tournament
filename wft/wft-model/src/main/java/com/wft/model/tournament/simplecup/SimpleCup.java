@@ -18,6 +18,10 @@ import com.wft.model.tournament.Tournament;
 @ForceDiscriminator
 public class SimpleCup extends Tournament {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<PlayingTeam> playingTeams;
 

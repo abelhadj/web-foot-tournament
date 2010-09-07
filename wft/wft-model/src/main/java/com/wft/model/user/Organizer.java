@@ -8,7 +8,7 @@ import org.hibernate.annotations.ForceDiscriminator;
 @Entity
 @DiscriminatorValue(value = "ROLE_ORGANIZER")
 @ForceDiscriminator
-public class Organizer extends User {
+public class Organizer extends Gamer {
 	/**
 	 * 
 	 */
