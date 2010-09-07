@@ -21,6 +21,7 @@ import org.hibernate.annotations.ForceDiscriminator;
 
 import net.sf.gilead.pojo.java5.LightEntity;
 
+import com.wft.model.tournament.game.Game;
 import com.wft.model.user.Organizer;
 
 @Entity
@@ -45,4 +46,5 @@ public abstract class Tournament extends LightEntity implements Serializable {
 	private Boolean autoAcceptPlayers;
 
 	public abstract List<PlayingTeam> getPlayingTeams();
+	public abstract List<Game> getGames();
 }

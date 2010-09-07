@@ -14,6 +14,7 @@ import org.hibernate.annotations.ForceDiscriminator;
 
 import com.wft.model.tournament.PlayingTeam;
 import com.wft.model.tournament.Tournament;
+import com.wft.model.tournament.game.Game;
 
 @Entity
 @DiscriminatorValue(value = "CUP_WITH_GROUPS")
@@ -36,6 +37,15 @@ public class CupWGroups extends Tournament {
 			playingTeams.addAll(cupGroup.getPlayingTeams());
 		}
 		return playingTeams;
+	}
+
+	@Override
+	public List<Game> getGames() {
+		List<Game> games = new LinkedList<Game>();
+		for (CupGroup cupGroup : cupGroups) {
+			games.addAll(cupGroup.getGames());
+		}
+		return games;
 	}
 
 }

@@ -12,6 +12,7 @@ import org.hibernate.annotations.ForceDiscriminator;
 
 import com.wft.model.tournament.PlayingTeam;
 import com.wft.model.tournament.Tournament;
+import com.wft.model.tournament.game.Game;
 
 @Entity
 @DiscriminatorValue(value = "SIMPLE_CUP")
@@ -22,12 +23,21 @@ public class SimpleCup extends Tournament {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<PlayingTeam> playingTeams;
+
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Game> games;
 
 	@Override
 	public List<PlayingTeam> getPlayingTeams() {
 		return playingTeams;
+	}
+
+	@Override
+	public List<Game> getGames() {
+		return games;
 	}
 
 }
