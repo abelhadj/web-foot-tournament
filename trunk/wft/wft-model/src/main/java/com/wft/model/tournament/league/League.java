@@ -17,6 +17,10 @@ import com.wft.model.tournament.Tournament;
 @DiscriminatorValue(value = "LEAGUE")
 @ForceDiscriminator
 public class League extends Tournament {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<PlayingTeam> playingTeams;
 

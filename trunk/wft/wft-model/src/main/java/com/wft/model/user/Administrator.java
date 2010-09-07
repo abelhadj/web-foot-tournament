@@ -8,7 +8,7 @@ import org.hibernate.annotations.ForceDiscriminator;
 @Entity
 @DiscriminatorValue(value = "ROLE_ADMINISTRATOR")
 @ForceDiscriminator
-public class Administrator extends User {
+public class Administrator extends Organizer {
 	/**
 	 * 
 	 */
