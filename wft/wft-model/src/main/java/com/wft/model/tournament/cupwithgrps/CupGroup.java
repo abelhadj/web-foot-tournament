@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import net.sf.gilead.pojo.java5.LightEntity;
 
 import com.wft.model.tournament.PlayingTeam;
+import com.wft.model.tournament.game.Game;
 
 @Entity
 public class CupGroup extends LightEntity implements Serializable {
@@ -29,11 +30,18 @@ public class CupGroup extends LightEntity implements Serializable {
 	private Integer groupNumber;
 	
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<PlayingTeam> playingTeams;
+
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Game> games;
 
 	public List<PlayingTeam> getPlayingTeams() {
 		return playingTeams;
+	}
+
+	public List<Game> getGames() {
+		return games;
 	}
 
 }
