@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" ?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+	<window id="win" border="normal" width="400px" mode="overlapped" position="center">
+		<zscript><![CDATA[
+	void authenticate(String username, String password) {
+		com.wft.model.ReturnMemento ret = authenticationService.authenticate(username, password);
+		if (com.wft.model.ReturnMemento.CODE_SUCCESS==ret.getCode()) {
+			Executions.sendRedirect("/app/index.zul");
+		}
+	}
+]]>
+		</zscript>
+
+		<groupbox mold="3d">
+			<caption label="Login" />
+			<vbox width="100%">
+				<grid id="gb">
+					<rows>
+						<row>
+							Username:
+							<textbox id="username"
+								constraint="no empty" />
+						</row>
+						<row>
+							Password:
+							<textbox id="password" type="password"
+								constraint="no empty" />
+						</row>
+					</rows>
+				</grid>
+
+				<hbox align="end">
+					<button label="Login"
+						onClick="authenticate(username.getValue(), password.getValue())" />
+				</hbox>
+			</vbox>
+		</groupbox>
+	</window>
+
+</zk>
