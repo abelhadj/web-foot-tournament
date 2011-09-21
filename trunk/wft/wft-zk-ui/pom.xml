@@ -55,13 +55,17 @@
 		</plugins>
 	</build>
 
-  <repositories>
-    <repository>
-      <id>ZK CE</id>
-      <url>http://mavensync.zkoss.org/maven2</url>
-    </repository>
-  </repositories>
- 
+	<repositories>
+   <repository>
+     <id>ZK EE Evaluation</id>
+     <url>http://mavensync.zkoss.org/zk/ee-eval</url>
+   </repository>
+		<repository>
+			<id>ZK EE</id>
+			<url>https://maven.zkoss.org/repo/zk/ee</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<!-- model and persistence -->
 		<dependency>
@@ -96,21 +100,21 @@
 			<artifactId>zhtml</artifactId>
 			<version>5.0.7</version>
 		</dependency>
-<!--     <dependency> -->
-<!--       <groupId>org.zkoss.zk</groupId> -->
-<!--       <artifactId>zkmax</artifactId> -->
-<!--       <version>5.0.7</version> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>org.zkoss.zk</groupId> -->
-<!--       <artifactId>zkweb</artifactId> -->
-<!--       <version>5.0.7</version> -->
-<!--     </dependency> -->
-<!--     <dependency> -->
-<!--       <groupId>org.zkoss.zk</groupId> -->
-<!--       <artifactId>zkex</artifactId> -->
-<!--       <version>5.0.7</version> -->
-<!--     </dependency> -->
+    <dependency>
+      <groupId>org.zkoss.zk</groupId>
+      <artifactId>zkmax</artifactId>
+      <version>5.0.7</version>
+    </dependency>
+    <dependency>
+      <groupId>org.zkoss.common</groupId>
+      <artifactId>zweb</artifactId>
+      <version>5.0.7</version>
+    </dependency>
+    <dependency>
+      <groupId>org.zkoss.zk</groupId>
+      <artifactId>zkex</artifactId>
+      <version>5.0.7</version>
+    </dependency>
 
 		<dependency>
 			<groupId>org.zkoss.zk</groupId>
