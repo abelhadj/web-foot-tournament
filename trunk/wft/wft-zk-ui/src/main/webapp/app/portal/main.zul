@@ -5,6 +5,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
-  <panel width="100%" height="100%"></panel>
+  <vbox id="vbox" width="100%" height="100%"
+    apply="com.wft.ui.portal.PortalMainComposer">
+    <zscript><![CDATA[
+    ]]>
+    </zscript>
+  </vbox>
 
 </zk>

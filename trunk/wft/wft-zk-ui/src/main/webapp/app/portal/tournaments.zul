@@ -7,14 +7,18 @@
 
 
 	<vbox id="vbox" width="100%" height="100%"
-		use="com.wft.ui.portal.TournamentsAfterCompose">
+		apply="com.wft.ui.portal.PortalTournamentsComposer">
 		<zscript><![CDATA[
     List teamRepoList = teamRepositoryService.getAllRepositoriesName();
-]]>
+    String selectedRepo = teamRepoList.get(0);
+    void onCreateCupClick() {
+    	vbox$composer.onCreateCupClick(Integer.parseInt(nbTeamsForCup.getValue()), teamRepoNames.getSelectedItem().getValue());
+    }
+    ]]>
     </zscript>
-		<combobox id="teamRepoNames" model="@{teamRepoList}"/>
+		<combobox id="teamRepoNames" model="@{teamRepoList}" selectedItem="@{selectedRepo}"/>
 		<hbox>
-			<button label="Create cup" onClick="" />
+			<button label="Create cup" onClick="onCreateCupClick()" />
 			<textbox id="nbTeamsForCup" value="13" />
 		</hbox>
 		<button label="Create Championship" onClick="" />
