@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+	<panel border="normal">
+		<panelchildren>
+			<tablelayout columns="2">
+				<tablechildren>
+					<panel>
+						<panelchildren>
+							<label id="hostingTeamName" value="Equipe 1 : " />
+						</panelchildren>
+					</panel>
+          <panel>
+            <panelchildren>
+              <label id="visitorTeamName" value="Equipe 2 : " />
+            </panelchildren>
+          </panel>
+				</tablechildren>
+        <tablechildren>
+          <panel>
+            <panelchildren>
+              <label id="hostingTeamScore" />
+            </panelchildren>
+          </panel>
+          <panel>
+            <panelchildren>
+              <label id="visitorTeamScore" />
+            </panelchildren>
+          </panel>
+        </tablechildren>
+			</tablelayout>
+		</panelchildren>
+	</panel>
+</zk>
