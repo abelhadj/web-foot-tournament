@@ -11,6 +11,7 @@ import com.wft.model.tournament.Tournament;
 import com.wft.service.services.ITeamRepositoryService;
 import com.wft.service.services.ITournamentService;
 import com.wft.service.services.IUserService;
+import com.wft.ui.tournament.TournamentPanel;
 import com.wft.util.WFTEventUtil;
 
 public class PortalMainComposer extends GenericForwardComposer  {
@@ -27,12 +28,15 @@ public class PortalMainComposer extends GenericForwardComposer  {
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
+		final Component finalComp = comp;
 		EventQueues.lookup(WFTEventUtil.WFT_APPLICATION, EventQueues.APPLICATION, true).subscribe(
 				  new EventListener() {
 				    public void onEvent(Event evt) {
 				    	if (WFTEventUtil.WFTPortalEvents.WFT_NEW_TOURNAMENT_TO_DISPLAY.equals(evt.getName())) {
 				    		Integer tournamentId = (Integer) evt.getData();
 				    		Tournament tournament = tournamentService.retrieveTournamentById(tournamentId);
+				    		
+				    		finalComp.appendChild(new TournamentPanel(tournament));
 				    	}
 				    }
 				  });
