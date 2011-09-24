@@ -6,9 +6,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
-	<portallayout maximizedMode="whole" width="100%">
+	<portallayout maximizedMode="whole" width="100%" height="100%">
 		<portalchildren style="padding: 5px" width="250px">
-			<panel height="100px" title="Profile" border="normal"
+			<panel height="100px" width="100%" title="Profile" border="normal"
 				collapsible="false" closable="false" maximizable="false" draggable="false"
 				style="margin-bottom:10px">
 				<panelchildren>
@@ -16,7 +16,7 @@
 						src="/app/portal/profile.zul" />
 				</panelchildren>
 			</panel>
-			<panel vflex="1" title="Tournaments" border="normal"
+			<panel vflex="1" width="100%" title="Tournaments" border="normal"
 				collapsible="false" closable="false" maximizable="false" draggable="false"
 				style="margin-bottom:10px">
 				<panelchildren>
@@ -24,7 +24,7 @@
 						src="/app/portal/tournaments.zul" />
 				</panelchildren>
 			</panel>
-			<panel height="250px" title="Calendar" border="normal" draggable="false"
+			<panel height="250px" width="100%" title="Calendar" border="normal" draggable="false"
 				collapsible="false" closable="false" maximizable="true"
 				style="margin-bottom:10px">
 				<panelchildren>
@@ -34,7 +34,7 @@
 			</panel>
 		</portalchildren>
 
-		<portalchildren style="padding: 5px" hflex="1">
+		<portalchildren style="padding: 5px" hflex="1" height="100%">
 			<panel height="100%" width="100%" title="Main"
 				border="normal" collapsible="false" closable="false" draggable="false"
 				maximizable="true" style="margin-bottom:10px">
@@ -46,7 +46,7 @@
 		</portalchildren>
 
 		<portalchildren style="padding: 5px" width="250px">
-			<panel height="100px" title="Messages" border="normal"
+			<panel height="100px" width="100%" title="Messages" border="normal"
 				collapsible="false" closable="false" maximizable="false" draggable="false"
 				style="margin-bottom:10px">
 				<panelchildren>
@@ -54,7 +54,7 @@
 						src="/app/portal/messages.zul" />
 				</panelchildren>
 			</panel>
-			<panel vflex="1" title="Chat" border="normal"
+			<panel vflex="1" width="100%" title="Chat" border="normal"
 				collapsible="false" closable="false" maximizable="false" draggable="false"
 				style="margin-bottom:10px">
 				<panelchildren>
