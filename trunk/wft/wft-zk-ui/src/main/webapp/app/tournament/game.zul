@@ -5,33 +5,41 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
-	<panel border="normal">
+	<panel border="normal" height="105px">
 		<panelchildren>
 			<tablelayout columns="2">
 				<tablechildren>
 					<panel>
 						<panelchildren>
-							<label id="hostingTeamName" value="Equipe 1 : " />
+							<hbox>
+								<button id="hostingTeam"
+									image="/img/shirt1-48x48.png" height="48px" label="Equipe 1"
+									orient="horizontal" />
+							</hbox>
 						</panelchildren>
 					</panel>
-          <panel>
-            <panelchildren>
-              <label id="visitorTeamName" value="Equipe 2 : " />
-            </panelchildren>
-          </panel>
+					<panel>
+						<panelchildren>
+							<button id="visitorTeam"
+								image="/img/shirt2-48x48.png" height="48px" label="Equipe 2"
+								orient="horizontal" />
+						</panelchildren>
+					</panel>
 				</tablechildren>
-        <tablechildren>
-          <panel>
-            <panelchildren>
-              <label id="hostingTeamScore" />
-            </panelchildren>
-          </panel>
-          <panel>
-            <panelchildren>
-              <label id="visitorTeamScore" />
-            </panelchildren>
-          </panel>
-        </tablechildren>
+				<tablechildren>
+					<panel>
+						<panelchildren>
+							<button id="hostingTeamScore" height="48px"
+								width="64px" label="-" orient="horizontal" />
+						</panelchildren>
+					</panel>
+					<panel>
+						<panelchildren>
+							<button id="visitorTeamScore" height="48px"
+								width="64px" label="-" orient="horizontal" />
+						</panelchildren>
+					</panel>
+				</tablechildren>
 			</tablelayout>
 		</panelchildren>
 	</panel>
