@@ -8,25 +8,25 @@
 
 	<portallayout maximizedMode="whole" width="100%" height="100%">
 		<portalchildren style="padding: 5px" width="250px">
-			<panel height="100px" width="100%" title="Profile" border="normal"
-				collapsible="false" closable="false" maximizable="false" draggable="false"
-				style="margin-bottom:10px">
+			<panel height="100px" width="100%" title="Profile"
+				border="normal" collapsible="false" closable="false"
+				maximizable="false" draggable="false" style="margin-bottom:10px">
 				<panelchildren>
 					<include width="100%" height="100%"
 						src="/app/portal/profile.zul" />
 				</panelchildren>
 			</panel>
-			<panel vflex="1" width="100%" title="Tournaments" border="normal"
-				collapsible="false" closable="false" maximizable="false" draggable="false"
-				style="margin-bottom:10px">
+			<panel vflex="1" width="100%" title="Tournaments"
+				border="normal" collapsible="false" closable="false"
+				maximizable="false" draggable="false" style="margin-bottom:10px">
 				<panelchildren>
 					<include width="100%" height="100%"
 						src="/app/portal/tournaments.zul" />
 				</panelchildren>
 			</panel>
-			<panel height="250px" width="100%" title="Calendar" border="normal" draggable="false"
-				collapsible="false" closable="false" maximizable="true"
-				style="margin-bottom:10px">
+			<panel height="250px" width="100%" title="Calendar"
+				border="normal" draggable="false" collapsible="false"
+				closable="false" maximizable="true" style="margin-bottom:10px">
 				<panelchildren>
 					<include width="100%" height="100%"
 						src="/app/portal/calendar.zul" />
@@ -35,9 +35,9 @@
 		</portalchildren>
 
 		<portalchildren style="padding: 5px" hflex="1" height="100%">
-			<panel height="100%" width="100%" title="Main"
-				border="normal" collapsible="false" closable="false" draggable="false"
-				maximizable="true" style="margin-bottom:10px">
+			<panel id="mainPanel" height="100%" width="100%"
+				title="Main" border="normal" collapsible="false" closable="false"
+				draggable="false" maximizable="true" style="margin-bottom:10px">
 				<panelchildren>
 					<include width="100%" height="100%"
 						src="/app/portal/main.zul" />
@@ -46,17 +46,17 @@
 		</portalchildren>
 
 		<portalchildren style="padding: 5px" width="250px">
-			<panel height="100px" width="100%" title="Messages" border="normal"
-				collapsible="false" closable="false" maximizable="false" draggable="false"
-				style="margin-bottom:10px">
+			<panel height="100px" width="100%" title="Messages"
+				border="normal" collapsible="false" closable="false"
+				maximizable="false" draggable="false" style="margin-bottom:10px">
 				<panelchildren>
 					<include width="100%" height="100%"
 						src="/app/portal/messages.zul" />
 				</panelchildren>
 			</panel>
 			<panel vflex="1" width="100%" title="Chat" border="normal"
-				collapsible="false" closable="false" maximizable="false" draggable="false"
-				style="margin-bottom:10px">
+				collapsible="false" closable="false" maximizable="false"
+				draggable="false" style="margin-bottom:10px">
 				<panelchildren>
 					<include width="100%" height="100%"
 						src="/app/portal/chat.zul" />

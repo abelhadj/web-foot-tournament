@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+	<panel border="normal">
+		<panelchildren>
+			<tablelayout columns="5">
+				<tablechildren>
+					<panel height="50px">
+						<panelchildren>
+							<label value="toto" />
+						</panelchildren>
+					</panel>
+          <panel>
+            <panelchildren>
+              <label value="-" />
+            </panelchildren>
+          </panel>
+          <panel>
+            <panelchildren>
+              <label value="-" />
+            </panelchildren>
+          </panel>
+          <panel>
+            <panelchildren>
+              <label value="toto" />
+            </panelchildren>
+          </panel>
+				</tablechildren>
+				<tablechildren>
+					<panel>
+            <panelchildren>
+              <label value="toto" />
+            </panelchildren>
+					</panel>
+					<panel>
+            <panelchildren>
+              <label value="toto" />
+            </panelchildren>
+					</panel>
+				</tablechildren>
+			</tablelayout>
+		</panelchildren>
+	</panel>
+</zk>
