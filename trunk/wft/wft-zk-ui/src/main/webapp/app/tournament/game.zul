@@ -13,7 +13,7 @@
 						<panelchildren>
 							<hbox>
 								<button id="hostingTeam"
-									image="/img/shirt1-48x48.png" height="48px" label="Equipe 1"
+									image="/img/shirt1-48x48.png" height="48px" width="120px" label="-"
 									orient="horizontal" />
 							</hbox>
 						</panelchildren>
@@ -21,7 +21,7 @@
 					<panel>
 						<panelchildren>
 							<button id="visitorTeam"
-								image="/img/shirt2-48x48.png" height="48px" label="Equipe 2"
+								image="/img/shirt2-48x48.png" height="48px" width="120px" label="-"
 								orient="horizontal" />
 						</panelchildren>
 					</panel>
