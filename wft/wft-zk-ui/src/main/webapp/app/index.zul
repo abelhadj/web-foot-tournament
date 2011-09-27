@@ -38,7 +38,7 @@
 			<panel id="mainPanel" height="100%" width="100%"
 				title="Main" border="normal" collapsible="false" closable="false"
 				draggable="false" maximizable="true" style="margin-bottom:10px">
-				<panelchildren>
+				<panelchildren style="overflow:auto">
 					<include width="100%" height="100%"
 						src="/app/portal/main.zul" />
 				</panelchildren>

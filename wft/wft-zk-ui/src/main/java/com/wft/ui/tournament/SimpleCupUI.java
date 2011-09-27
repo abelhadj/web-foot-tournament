@@ -1,12 +1,13 @@
 package com.wft.ui.tournament;
 
+import java.util.Collection;
 import java.util.Vector;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zkmax.zul.Tablechildren;
 import org.zkoss.zkmax.zul.Tablelayout;
-import org.zkoss.zul.Label;
+import org.zkoss.zul.Button;
 import org.zkoss.zul.Panel;
 import org.zkoss.zul.Panelchildren;
 
@@ -73,6 +74,13 @@ public class SimpleCupUI extends Tablelayout {
 		// TODO UI from nodeGame
 		Component game = Executions.createComponents(
 				"/app/tournament/game.zul", panelchildren, null);
+		Collection fellows = game.getFellows();
+		if (game.getFellowIfAny("hostingTeam",true) != null && nodeGame.getHostingTeam() != null) {
+			((Button)(game.getFellowIfAny("hostingTeam",true))).setLabel(nodeGame.getHostingTeam().getTeam().getName());
+		}
+		if (game.getFellowIfAny("visitorTeam",true) != null && nodeGame.getVisitorTeam() != null) {
+			((Button)(game.getFellowIfAny("visitorTeam",true))).setLabel(nodeGame.getVisitorTeam().getTeam().getName());
+		}
 
 		panelchildren.appendChild(game);
 		panel.appendChild(panelchildren);
