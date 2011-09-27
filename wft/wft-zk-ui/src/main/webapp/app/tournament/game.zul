@@ -5,6 +5,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
+
 	<panel border="normal" height="105px">
 		<panelchildren>
 			<tablelayout columns="2">
@@ -13,16 +14,16 @@
 						<panelchildren>
 							<hbox>
 								<button id="hostingTeam"
-									image="/img/shirt1-48x48.png" height="48px" width="120px" label="-"
-									orient="horizontal" />
+									image="/img/shirt1-48x48.png" height="48px" width="120px"
+									label="-" orient="horizontal" />
 							</hbox>
 						</panelchildren>
 					</panel>
 					<panel>
 						<panelchildren>
 							<button id="visitorTeam"
-								image="/img/shirt2-48x48.png" height="48px" width="120px" label="-"
-								orient="horizontal" />
+								image="/img/shirt2-48x48.png" height="48px" width="120px"
+								label="-" orient="horizontal" />
 						</panelchildren>
 					</panel>
 				</tablechildren>
@@ -40,6 +41,16 @@
 						</panelchildren>
 					</panel>
 				</tablechildren>
+				<zscript><![CDATA[
+	Map args = Executions.getCurrent().getArg();
+	if (args.containsKey("hostingTeam")) {
+		hostingTeam.setLabel((String) args.get("hostingTeam"));
+	}
+	if (args.containsKey("visitorTeam")) {
+		visitorTeam.setLabel((String) args.get("visitorTeam"));
+	}
+]]>
+    </zscript>
 			</tablelayout>
 		</panelchildren>
 	</panel>
