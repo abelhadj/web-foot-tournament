@@ -1,6 +1,8 @@
 package com.wft.ui.tournament;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 
 import org.zkoss.zk.ui.Component;
@@ -71,16 +73,17 @@ public class SimpleCupUI extends Tablelayout {
 		Panel panel = new Panel();
 		Panelchildren panelchildren = new Panelchildren();
 
+		Map<String, String> args = new HashMap<String, String>();
+		if (nodeGame != null && nodeGame.getHostingTeam() != null) {
+			args.put("hostingTeam", nodeGame.getHostingTeam().getTeam().getName());
+		}
+		if (nodeGame != null && nodeGame.getVisitorTeam() != null) {
+			args.put("visitorTeam", nodeGame.getVisitorTeam().getTeam().getName());
+		}
+
 		// TODO UI from nodeGame
 		Component game = Executions.createComponents(
-				"/app/tournament/game.zul", panelchildren, null);
-		Collection fellows = game.getFellows();
-		if (game.getFellowIfAny("hostingTeam",true) != null && nodeGame.getHostingTeam() != null) {
-			((Button)(game.getFellowIfAny("hostingTeam",true))).setLabel(nodeGame.getHostingTeam().getTeam().getName());
-		}
-		if (game.getFellowIfAny("visitorTeam",true) != null && nodeGame.getVisitorTeam() != null) {
-			((Button)(game.getFellowIfAny("visitorTeam",true))).setLabel(nodeGame.getVisitorTeam().getTeam().getName());
-		}
+				"/app/tournament/game.zul", panelchildren, args);
 
 		panelchildren.appendChild(game);
 		panel.appendChild(panelchildren);
