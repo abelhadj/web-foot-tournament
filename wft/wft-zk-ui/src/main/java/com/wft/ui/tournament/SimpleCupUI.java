@@ -73,13 +73,15 @@ public class SimpleCupUI extends Tablelayout {
 		Panel panel = new Panel();
 		Panelchildren panelchildren = new Panelchildren();
 
-		Map<String, String> args = new HashMap<String, String>();
+		Map<String, String> params = new HashMap<String, String>();
 		if (nodeGame != null && nodeGame.getHostingTeam() != null) {
-			args.put("hostingTeam", nodeGame.getHostingTeam().getTeam().getName());
+			params.put("hostingTeam", nodeGame.getHostingTeam().getTeam().getName());
 		}
 		if (nodeGame != null && nodeGame.getVisitorTeam() != null) {
-			args.put("visitorTeam", nodeGame.getVisitorTeam().getTeam().getName());
+			params.put("visitorTeam", nodeGame.getVisitorTeam().getTeam().getName());
 		}
+		Map<String,Map<String, String>> args = new HashMap<String, Map<String,String>>();
+		args.put("params", params);
 
 		// TODO UI from nodeGame
 		Component game = Executions.createComponents(
