@@ -16,6 +16,15 @@
 								<button id="hostingTeam"
 									image="/img/shirt1-48x48.png" height="48px" width="120px"
 									label="-" orient="horizontal" />
+								<zscript><![CDATA[
+	//  Map args = Executions.getCurrent().getArg();
+	Map params = (Map) arg.get("params");
+	alert("params.size : " + params.size());
+	if (params.containsKey("hostingTeam")) {
+		this.hostingTeam.setLabel((String) params.get("hostingTeam"));
+	}
+]]>
+    </zscript>
 							</hbox>
 						</panelchildren>
 					</panel>
@@ -24,6 +33,13 @@
 							<button id="visitorTeam"
 								image="/img/shirt2-48x48.png" height="48px" width="120px"
 								label="-" orient="horizontal" />
+							<zscript><![CDATA[
+	//  Map args = Executions.getCurrent().getArg();
+	if (params.containsKey("visitorTeam")) {
+		this.visitorTeam.setLabel((String) params.get("visitorTeam"));
+	}
+]]>
+    </zscript>
 						</panelchildren>
 					</panel>
 				</tablechildren>
@@ -41,16 +57,6 @@
 						</panelchildren>
 					</panel>
 				</tablechildren>
-				<zscript><![CDATA[
-	Map args = Executions.getCurrent().getArg();
-	if (args.containsKey("hostingTeam")) {
-		hostingTeam.setLabel((String) args.get("hostingTeam"));
-	}
-	if (args.containsKey("visitorTeam")) {
-		visitorTeam.setLabel((String) args.get("visitorTeam"));
-	}
-]]>
-    </zscript>
 			</tablelayout>
 		</panelchildren>
 	</panel>
