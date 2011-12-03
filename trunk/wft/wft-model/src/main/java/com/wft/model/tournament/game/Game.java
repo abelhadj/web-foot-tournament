@@ -84,6 +84,9 @@ public class Game extends BaseEntity {
 		this.played = played;
 	}
 
-	
+  public boolean isALeafGame() {
+    return this.getPlayed() && this.getVisitorTeam() == null;
+  }
+
 	
 }

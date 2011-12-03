@@ -27,16 +27,13 @@ public class PortalTournamentsComposer extends GenericForwardComposer {
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
-
 	}
 
 	public void onCreateCupClick(int nbTeams, String teamRepositoryName) {
-		System.out.println("click !");
-		System.out.println("nbTeams : " + nbTeams);
-		System.out.println("teamRepositoryName : " + teamRepositoryName);
 		Organizer organizer = (Organizer) userService.getCurrentlyConnected();
 		SimpleCup cup = tournamentService.createSimpleCup(organizer, nbTeams,
 				teamRepositoryName);
+		tournamentService.autoAssignUnassignedTeams(cup);
 
 		EventQueues
 				.lookup(WFTEventUtil.WFT_APPLICATION, EventQueues.APPLICATION,

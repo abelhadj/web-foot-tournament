@@ -73,15 +73,15 @@ public class SimpleCupUI extends Tablelayout {
 		Panel panel = new Panel();
 		Panelchildren panelchildren = new Panelchildren();
 
-		Map<String, String> params = new HashMap<String, String>();
-		if (nodeGame != null && nodeGame.getHostingTeam() != null) {
-			params.put("hostingTeam", nodeGame.getHostingTeam().getTeam().getName());
-		}
-		if (nodeGame != null && nodeGame.getVisitorTeam() != null) {
-			params.put("visitorTeam", nodeGame.getVisitorTeam().getTeam().getName());
-		}
-		Map<String,Map<String, String>> args = new HashMap<String, Map<String,String>>();
-		args.put("params", params);
+//		Map<String, String> params = new HashMap<String, String>();
+//		if (nodeGame != null && nodeGame.getHostingTeam() != null) {
+//			params.put("hostingTeam", nodeGame.getHostingTeam().getTeam().getName());
+//		}
+//		if (nodeGame != null && nodeGame.getVisitorTeam() != null) {
+//			params.put("visitorTeam", nodeGame.getVisitorTeam().getTeam().getName());
+//		}
+		Map<String,Game> args = new HashMap<String, Game>();
+		args.put("game", nodeGame);
 
 		// TODO UI from nodeGame
 		Component game = Executions.createComponents(
@@ -91,7 +91,7 @@ public class SimpleCupUI extends Tablelayout {
 		panel.appendChild(panelchildren);
 		if (this.eltHeight == null) {
 			this.eltHeight = panel.getHeight();
-			System.out.println(this.eltHeight);
+//			System.out.println(this.eltHeight);
 		}
 		tableChildren.appendChild(panel);
 	}
