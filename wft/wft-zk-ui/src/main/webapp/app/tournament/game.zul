@@ -2,62 +2,49 @@
 <?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
 
-	<panel border="normal" height="105px">
-		<panelchildren>
-			<tablelayout columns="2">
-				<tablechildren>
-					<panel>
-						<panelchildren>
-							<hbox>
-								<button id="hostingTeam"
-									image="/img/shirt1-48x48.png" height="48px" width="120px"
-									label="-" orient="horizontal" />
-								<zscript><![CDATA[
-	//  Map args = Executions.getCurrent().getArg();
-	Map params = (Map) arg.get("params");
-	alert("params.size : " + params.size());
-	if (params.containsKey("hostingTeam")) {
-		this.hostingTeam.setLabel((String) params.get("hostingTeam"));
-	}
+  <panel id="panel" border="normal" height="105px"
+    apply="com.wft.ui.tournament.GameComposer">
+    <zscript><![CDATA[
+  import com.wft.model.tournament.game.Game;
+  Game game = (Game) arg.get("game");
+  panel$composer.setGame(game);
 ]]>
     </zscript>
-							</hbox>
-						</panelchildren>
-					</panel>
-					<panel>
-						<panelchildren>
-							<button id="visitorTeam"
-								image="/img/shirt2-48x48.png" height="48px" width="120px"
-								label="-" orient="horizontal" />
-							<zscript><![CDATA[
-	//  Map args = Executions.getCurrent().getArg();
-	if (params.containsKey("visitorTeam")) {
-		this.visitorTeam.setLabel((String) params.get("visitorTeam"));
-	}
-]]>
-    </zscript>
-						</panelchildren>
-					</panel>
-				</tablechildren>
-				<tablechildren>
-					<panel>
-						<panelchildren>
-							<button id="hostingTeamScore" height="48px"
-								width="64px" label="-" orient="horizontal" />
-						</panelchildren>
-					</panel>
-					<panel>
-						<panelchildren>
-							<button id="visitorTeamScore" height="48px"
-								width="64px" label="-" orient="horizontal" />
-						</panelchildren>
-					</panel>
-				</tablechildren>
-			</tablelayout>
-		</panelchildren>
-	</panel>
+    <panelchildren>
+      <tablelayout columns="2">
+        <tablechildren>
+          <panel>
+            <panelchildren>
+              <button id="hostingTeam" height="48px" width="120px"
+                label="-" orient="horizontal" />
+            </panelchildren>
+          </panel>
+          <panel id="visitorPanel">
+            <panelchildren>
+              <button id="visitorTeam" height="48px" width="120px"
+                label="-" orient="horizontal" />
+            </panelchildren>
+          </panel>
+        </tablechildren>
+        <tablechildren>
+          <panel>
+            <panelchildren>
+              <button id="hostingTeamScore" height="48px" width="64px"
+                label="-" orient="horizontal" />
+            </panelchildren>
+          </panel>
+          <panel id="visitorScorePanel">
+            <panelchildren>
+              <button id="visitorTeamScore" height="48px" width="64px"
+                label="-" orient="horizontal" />
+            </panelchildren>
+          </panel>
+        </tablechildren>
+      </tablelayout>
+    </panelchildren>
+  </panel>
 </zk>
