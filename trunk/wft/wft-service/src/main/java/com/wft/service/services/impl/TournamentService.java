@@ -2,12 +2,10 @@ package com.wft.service.services.impl;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.Vector;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +25,7 @@ import com.wft.model.tournament.league.LeagueTeamStats;
 import com.wft.model.tournament.simplecup.CupNode;
 import com.wft.model.tournament.simplecup.SimpleCup;
 import com.wft.model.user.Organizer;
+import com.wft.model.user.User;
 import com.wft.service.core.impl.ServiceImpl;
 import com.wft.service.dao.IGamingTeamDAO;
 import com.wft.service.dao.ITeamDAO;
@@ -156,9 +155,8 @@ public class TournamentService extends ServiceImpl<Tournament> implements
     return championship;
   }
 
-  public List<Tournament> getAllTournamentsForUser() {
-    // TODO Auto-generated method stub
-    return null;
+  public List<Tournament> getAllTournamentsAccessibleForUser(User user) {
+    return tournamentDAO.findAll();
   }
 
   public void requestToPlayInTournament(Tournament tournament, Team team) {
