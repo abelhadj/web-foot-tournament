@@ -16,7 +16,7 @@
 						src="/app/portal/profile.zul" />
 				</panelchildren>
 			</panel>
-			<panel vflex="1" width="100%" title="Tournaments"
+			<panel height="300px" width="100%" title="Tournaments"
 				border="normal" collapsible="false" closable="false"
 				maximizable="false" draggable="false" style="margin-bottom:10px">
 				<panelchildren>
