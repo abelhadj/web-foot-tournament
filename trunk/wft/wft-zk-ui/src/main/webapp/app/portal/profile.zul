@@ -13,7 +13,7 @@
 ]]>
     </zscript>
 		<vbox id="vbox"
-			apply="com.wft.ui.portal.PortalProfileComposer" width="100%" height="100%">
+			apply="${portalProfileComposer}" width="100%" height="100%">
 			<hbox>
 				<label value="Logged as : " />
 				<label id="loginName" />

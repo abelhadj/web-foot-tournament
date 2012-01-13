@@ -1,9 +1,12 @@
 package com.wft.ui.portal;
 
+import org.springframework.context.annotation.Scope;
+import org.zkoss.spring.util.GenericSpringComposer;
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.util.GenericForwardComposer;
 
-public class PortalProfileComposer extends GenericForwardComposer {
+@org.springframework.stereotype.Component("portalProfileComposer")
+@Scope("desktop")
+public class PortalProfileComposer extends GenericSpringComposer {
 
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {

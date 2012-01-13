@@ -3,10 +3,9 @@ package com.wft.ui.portal;
 
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Listcell;
+import org.zkoss.zul.Listgroup;
 import org.zkoss.zul.Listitem;
 import org.zkoss.zul.ListitemRenderer;
-import org.zkoss.zul.api.Listgroup;
-import org.zkoss.zul.api.Listgroupfoot;
 
 import com.wft.model.tournament.Tournament;
 

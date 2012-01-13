@@ -7,7 +7,7 @@
 
 
   <vbox id="vbox" width="100%" height="100%"
-    apply="com.wft.ui.portal.PortalTournamentsComposer">
+    apply="${portalTournamentsComposer}">
 
     <tabbox id="tb" height="100%">
       <tabs id="tabs">
@@ -20,11 +20,11 @@
   List teamRepoList = teamRepositoryService.getAllRepositoriesName();
   String selectedRepo = teamRepoList.get(0);
   void onCreateCupClick() {
-    vbox$composer.onCreateCupClick(Integer.parseInt(nbTeamsForCup.getValue()),
+    portalTournamentsComposer.onCreateCupClick(Integer.parseInt(nbTeamsForCup.getValue()),
         teamRepoNames.getSelectedItem().getValue());
   }
   void onCreateChampionshipClick() {
-    vbox$composer.onCreateChampionshipClick(Integer.parseInt(nbTeamsForCup
+    portalTournamentsComposer.onCreateChampionshipClick(Integer.parseInt(nbTeamsForCup
         .getValue()), teamRepoNames.getSelectedItem().getValue());
   }
 ]]>
@@ -32,7 +32,7 @@
           <combobox id="teamRepoNames" model="@{teamRepoList}"
             selectedItem="@{selectedRepo}" />
           <hbox>
-            <button label="Create cup" onClick="onCreateCupClick()" />
+            <button label="Create cup" onClick="onCreateCupClick()"  />
             <textbox id="nbTeamsForCup" value="13" />
           </hbox>
           <button label="Create Championship"

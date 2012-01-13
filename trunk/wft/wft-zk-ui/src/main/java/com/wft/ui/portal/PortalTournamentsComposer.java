@@ -1,14 +1,11 @@
 package com.wft.ui.portal;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.zkoss.spring.context.annotation.EventHandler;
+import org.springframework.context.annotation.Scope;
+import org.zkoss.spring.util.GenericSpringComposer;
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.WrongValueException;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventQueues;
-import org.zkoss.zk.ui.util.GenericForwardComposer;
-import org.zkoss.zul.Combobox;
-import org.zkoss.zul.Textbox;
 
 import com.wft.model.tournament.championship.Championship;
 import com.wft.model.tournament.simplecup.SimpleCup;
@@ -17,9 +14,10 @@ import com.wft.service.services.ITeamRepositoryService;
 import com.wft.service.services.ITournamentService;
 import com.wft.service.services.IUserService;
 import com.wft.util.WFTEventUtil;
-import com.wft.util.WFTUIHelper;
 
-public class PortalTournamentsComposer extends GenericForwardComposer {
+@org.springframework.stereotype.Component("portalTournamentsComposer")
+@Scope("desktop")
+public class PortalTournamentsComposer extends GenericSpringComposer {
 
 	@Autowired
 	ITeamRepositoryService teamRepositoryService;
