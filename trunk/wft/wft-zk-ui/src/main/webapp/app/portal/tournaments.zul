@@ -53,9 +53,6 @@
             </listhead>
           </listbox>
           <zscript><![CDATA[
-  tournamentsList.setModel(new GroupsModelArray(
-      tournamentService.getAllTournamentsAccessibleForUser(userService.getCurrentlyConnected()),
-      new com.wft.ui.portal.TournamentListComparator()));
   void selectGroup() {
 //    Listitem ref = ((SelectEvent) event).getReference();
 //    if (ref instanceof Listgroup)
