@@ -71,7 +71,10 @@ public class SimpleCupUI extends Tablelayout {
 
 	private void appendNodeGameUI(Tablechildren tableChildren, Game nodeGame) {
 		Panel panel = new Panel();
+		panel.setStyle("overflow:auto;");
+
 		Panelchildren panelchildren = new Panelchildren();
+		panelchildren.setStyle("overflow:auto;");
 
 //		Map<String, String> params = new HashMap<String, String>();
 //		if (nodeGame != null && nodeGame.getHostingTeam() != null) {

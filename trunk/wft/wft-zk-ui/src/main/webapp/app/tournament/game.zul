@@ -6,45 +6,75 @@
   xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
 
-  <panel id="panel" border="normal" height="105px"
-    apply="com.wft.ui.tournament.GameComposer">
+  <panel id="panel" border="normal" height="150px"
+    apply="${gameComposer}" style="overflow:auto;">
     <zscript><![CDATA[
-  import com.wft.model.tournament.game.Game;
-  Game game = (Game) arg.get("game");
-  panel$composer.setGame(game);
+	import com.wft.model.tournament.game.Game;
+	Game game = (Game) arg.get("game");
+	gameComposer.setGame(game);
 ]]>
     </zscript>
-    <panelchildren>
+    <!-- 
+      <panelchildren>
       <tablelayout columns="2">
-        <tablechildren>
-          <panel>
-            <panelchildren>
-              <button id="hostingTeam" height="48px" width="120px"
-                label="-" orient="horizontal" />
-            </panelchildren>
-          </panel>
-          <panel id="visitorPanel">
-            <panelchildren>
-              <button id="visitorTeam" height="48px" width="120px"
-                label="-" orient="horizontal" />
-            </panelchildren>
-          </panel>
-        </tablechildren>
-        <tablechildren>
-          <panel>
-            <panelchildren>
-              <button id="hostingTeamScore" height="48px" width="64px"
-                label="-" orient="horizontal" />
-            </panelchildren>
-          </panel>
-          <panel id="visitorScorePanel">
-            <panelchildren>
-              <button id="visitorTeamScore" height="48px" width="64px"
-                label="-" orient="horizontal" />
-            </panelchildren>
-          </panel>
-        </tablechildren>
+      <tablechildren>
+      <panel>
+      <panelchildren>
+      <button id="hostingTeam" height="48px" width="120px"
+      label="-" orient="horizontal" />
+      </panelchildren>
+      </panel>
+      <panel id="visitorPanel">
+      <panelchildren>
+      <button id="visitorTeam" height="48px" width="120px"
+      label="-" orient="horizontal" />
+      </panelchildren>
+      </panel>
+      </tablechildren>
+      <tablechildren>
+      <panel>
+      <panelchildren>
+      <button id="hostingTeamScore" height="48px" width="64px"
+      label="-" orient="horizontal" />
+      </panelchildren>
+      </panel>
+      <panel id="visitorScorePanel">
+      <panelchildren>
+      <button id="visitorTeamScore" height="48px" width="64px"
+      label="-" orient="horizontal" />
+      </panelchildren>
+      </panel>
+      </tablechildren>
       </tablelayout>
+      </panelchildren>
+    -->
+    <panelchildren style="overflow:auto;">
+        <vbox>
+          <grid fixedLayout="false" id="gameGrid">
+            <columns>
+              <column width="40px" />
+              <column width="200px" sort="auto" />
+              <column width="50px" label="Score" sort="auto" />
+            </columns>
+            <rows>
+              <row height="40px">
+                <detail open="false">
+                  <label id="hostingTeamDetails" />
+                </detail>
+                <label id="hostingTeamName" />
+                <button id="hostingTeamScore" label="-"/>
+              </row>
+              <row height="40px">
+                <detail open="false">
+                  <label id="visitorTeamDetails" />
+                </detail>
+                <label id="visitorTeamName" />
+                <button id="visitorTeamScore" label="-" />
+              </row>
+            </rows>
+          </grid>
+          <label value="infos ..." />
+        </vbox>
     </panelchildren>
   </panel>
 </zk>

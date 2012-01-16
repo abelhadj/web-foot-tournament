@@ -1,59 +1,64 @@
 package com.wft.ui.tournament;
 
-import org.zkoss.image.Image;
+import org.springframework.context.annotation.Scope;
+import org.zkoss.spring.util.GenericSpringComposer;
 import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Button;
+import org.zkoss.zul.Grid;
+import org.zkoss.zul.Label;
 
 import com.wft.model.tournament.GamingTeam;
 import com.wft.model.tournament.game.Game;
 import com.wft.util.WFTUIHelper;
 
-public class GameComposer extends GenericForwardComposer {
+@org.springframework.stereotype.Component("gameComposer")
+@Scope("desktop")
+public class GameComposer extends GenericSpringComposer {
 
-  private Game game;
+	private Game game;
 
-  public void setGame(Game game) {
-    this.game = game;
-  }
+	public void setGame(Game game) {
+		this.game = game;
+	}
 
-  @Override
-  public void doAfterCompose(Component comp) throws Exception {
-    super.doAfterCompose(comp);
+	@Override
+	public void doAfterCompose(Component comp) throws Exception {
+		super.doAfterCompose(comp);
 
-    Component htComp = WFTUIHelper.getChildByName(comp, "hostingTeam");
-    GamingTeam hGTeam = game.getHostingTeam();
-    synchronizeGamingTeamToButtonLabel(htComp, hGTeam);
-    
-    Component vtComp = WFTUIHelper.getChildByName(comp, "visitorTeam");
-    GamingTeam vGTeam = game.getVisitorTeam();
-    synchronizeGamingTeamToButtonLabel(vtComp, vGTeam);
+		Label htNameLbl = (Label) WFTUIHelper.getChildByName(comp,
+				"hostingTeamName");
+		Label htDetailsLbl = (Label) WFTUIHelper.getChildByName(comp,
+		"hostingTeamDetails");
+		GamingTeam hGTeam = game.getHostingTeam();
+		synchronizeGamingTeamToLabel(htNameLbl, hGTeam);
+		synchronizeGamingTeamToLabel(htDetailsLbl, hGTeam, "Details about : ");
 
-    if (game.isALeafGame()) {
-      Component vP = WFTUIHelper.getChildByName(comp, "visitorPanel");
-      Component vsP = WFTUIHelper.getChildByName(comp, "visitorScorePanel");
+		Label vtNameLbl = (Label) WFTUIHelper.getChildByName(comp,
+				"visitorTeamName");
+		Label vtDetailsLbl = (Label) WFTUIHelper.getChildByName(comp,
+		"visitorTeamDetails");
+		GamingTeam vGTeam = game.getVisitorTeam();
+		synchronizeGamingTeamToLabel(vtNameLbl, vGTeam);
+		synchronizeGamingTeamToLabel(vtDetailsLbl, vGTeam, "Details about : ");
 
-      vP.getParent().removeChild(vP);
-      vsP.getParent().removeChild(vsP);
-      
-      highlightWinningGamingTeam(htComp);
-    }
-  }
+		if (game.isALeafGame()) {
+			Grid grid = (Grid) WFTUIHelper.getChildByName(comp, "gameGrid");
 
-  private void synchronizeGamingTeamToButtonLabel(Component vtComp,
-      GamingTeam gTeam) {
-    if (vtComp instanceof Button) {
-      Button vtButton = (Button) vtComp;
-      if (gTeam != null && gTeam.getTeam() != null) {
-        vtButton.setLabel(gTeam.getTeam().getName());
-      }
-    }
-  }
+			grid.getRows().removeChild(grid.getRows().getLastChild());
 
-  private void highlightWinningGamingTeam(Component comp) {
-    Button button = (Button) comp;
-    button.setStyle("color:green");
-  }
-  
+			htNameLbl.setStyle("color:green");
+		}
+	}
+
+	private void synchronizeGamingTeamToLabel(Label label, GamingTeam gTeam) {
+		synchronizeGamingTeamToLabel(label, gTeam, "");
+	}
+
+	private void synchronizeGamingTeamToLabel(Label label, GamingTeam gTeam,
+			String prefix) {
+		if (gTeam != null && gTeam.getTeam() != null) {
+			label.setValue(prefix + gTeam.getTeam().getName());
+		}
+	}
 
 }
