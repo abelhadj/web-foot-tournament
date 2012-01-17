@@ -6,10 +6,9 @@
   xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
 
-  <vbox id="vbox" width="100%" height="100%"
+  <vbox id="vbox" width="100%" height="100%" 
     apply="${portalTournamentsComposer}">
-
-    <tabbox id="tb" height="100%">
+    <tabbox id="tb" vflex="1">
       <tabs id="tabs">
         <tab id="organizerView" label="Organizer view" />
         <tab id="gamerView" label="Gamer view" />
@@ -47,19 +46,11 @@
             <!-- Make Grouping item selectable-->
             <custom-attributes org.zkoss.zul.listbox.groupSelect="true" />
             <listhead>
-              <listheader hflex="1" sort="auto(Category)"
-                label="Category" />
+              <listheader width="80px" sort="auto(Category)"
+                label="Organizer(s)" />
               <listheader hflex="1" sort="auto(TeamRepoName)" label="Teams" />
             </listhead>
           </listbox>
-          <zscript><![CDATA[
-  void selectGroup() {
-//    Listitem ref = ((SelectEvent) event).getReference();
-//    if (ref instanceof Listgroup)
-//      for (Iterator it = ((Listgroup) ref).getItems().iterator(); it.hasNext();)
-//        ((Listitem) it.next()).setSelected(ref.isSelected());
-  }
-]]></zscript>
         </tabpanel>
       </tabpanels>
     </tabbox>

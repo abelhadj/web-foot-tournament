@@ -14,40 +14,6 @@
 	gameComposer.setGame(game);
 ]]>
     </zscript>
-    <!-- 
-      <panelchildren>
-      <tablelayout columns="2">
-      <tablechildren>
-      <panel>
-      <panelchildren>
-      <button id="hostingTeam" height="48px" width="120px"
-      label="-" orient="horizontal" />
-      </panelchildren>
-      </panel>
-      <panel id="visitorPanel">
-      <panelchildren>
-      <button id="visitorTeam" height="48px" width="120px"
-      label="-" orient="horizontal" />
-      </panelchildren>
-      </panel>
-      </tablechildren>
-      <tablechildren>
-      <panel>
-      <panelchildren>
-      <button id="hostingTeamScore" height="48px" width="64px"
-      label="-" orient="horizontal" />
-      </panelchildren>
-      </panel>
-      <panel id="visitorScorePanel">
-      <panelchildren>
-      <button id="visitorTeamScore" height="48px" width="64px"
-      label="-" orient="horizontal" />
-      </panelchildren>
-      </panel>
-      </tablechildren>
-      </tablelayout>
-      </panelchildren>
-    -->
     <panelchildren style="overflow:auto;">
         <vbox>
           <grid fixedLayout="false" id="gameGrid">
@@ -61,14 +27,20 @@
                 <detail open="false">
                   <label id="hostingTeamDetails" />
                 </detail>
-                <label id="hostingTeamName" />
+                <hbox>
+                  <image id="hostingTeamImage" width="30px" height="30px" />
+                  <label id="hostingTeamName" />
+                </hbox>
                 <button id="hostingTeamScore" label="-"/>
               </row>
               <row height="40px">
                 <detail open="false">
                   <label id="visitorTeamDetails" />
                 </detail>
-                <label id="visitorTeamName" />
+                <hbox>
+                  <image id="visitorTeamImage" width="30px" height="30px" />
+                  <label id="visitorTeamName" />
+                </hbox>
                 <button id="visitorTeamScore" label="-" />
               </row>
             </rows>

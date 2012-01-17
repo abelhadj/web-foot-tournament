@@ -1,6 +1,8 @@
 package com.wft.util;
 
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.event.EventQueues;
 
 public class WFTUIHelper {
 
@@ -20,8 +22,14 @@ public class WFTUIHelper {
         }
       }
     }
-    
+
     return null;
   }
-  
+
+  public static void publishEventToApplication(String eventName, Object data) {
+    EventQueues.lookup(WFTEventUtil.WFT_APPLICATION, EventQueues.APPLICATION,
+        true).publish(new Event(eventName, null, data));
+
+  }
+
 }

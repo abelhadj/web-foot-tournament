@@ -61,7 +61,7 @@ public abstract class Tournament extends BaseEntity {
 	}
 
 	public String getCategory() {
-	  return this.getClass().getSimpleName();
+	  return this.getClass().getName();
 	}
 	
 	public abstract Set<GamingTeam> getGamingTeamsReadOnly();

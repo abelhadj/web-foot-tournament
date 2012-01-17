@@ -58,7 +58,7 @@ public class TournamentService extends ServiceImpl<Tournament> implements
     GamingTeam result = new GamingTeam();
     Team unassignedTeam = teamDAO.findByName(Team.UNASSIGNED_TEAM_NAME);
     if (unassignedTeam == null) {
-      unassignedTeam = new Team(Team.UNASSIGNED_TEAM_NAME, TeamType.CLUB);
+      unassignedTeam = new Team(Team.UNASSIGNED_TEAM_NAME, TeamType.CLUB, "");
       teamDAO.add(unassignedTeam);
     }
     result.setTeam(unassignedTeam);

@@ -46,8 +46,8 @@ public class PortalTournamentsComposer extends GenericSpringComposer {
     EventQueues.lookup(WFTEventUtil.WFT_APPLICATION, EventQueues.APPLICATION,
         true).subscribe(new EventListener() {
       public void onEvent(Event evt) {
-        if (WFTEventUtil.WFTPortalEvents.WFT_NEW_TOURNAMENT_TO_DISPLAY
-            .equals(evt.getName())) {
+        if (WFTEventUtil.WFTPortalEvents.WFT_TOURNAMENT_TO_DISPLAY.equals(evt
+            .getName())) {
           updateGamerView();
         }
       }
@@ -56,9 +56,9 @@ public class PortalTournamentsComposer extends GenericSpringComposer {
   }
 
   private void updateGamerView() {
-    Listbox tournamentsList = (Listbox) WFTUIHelper.getChildByName(this.thisComponent,
-    "tournamentsList");
-    
+    Listbox tournamentsList = (Listbox) WFTUIHelper.getChildByName(
+        this.thisComponent, "tournamentsList");
+
     tournamentsList.setModel(new GroupsModelArray(
         tournamentService.getAllTournamentsAccessibleForUser(userService
             .getCurrentlyConnected()),
@@ -71,10 +71,8 @@ public class PortalTournamentsComposer extends GenericSpringComposer {
         teamRepositoryName);
     tournamentService.autoAssignUnassignedTeams(cup);
 
-    EventQueues.lookup(WFTEventUtil.WFT_APPLICATION, EventQueues.APPLICATION,
-        true).publish(
-        new Event(WFTEventUtil.WFTPortalEvents.WFT_NEW_TOURNAMENT_TO_DISPLAY,
-            null, cup.getId()));
+    WFTUIHelper.publishEventToApplication(
+        WFTEventUtil.WFTPortalEvents.WFT_TOURNAMENT_TO_DISPLAY, cup.getId());
   }
 
   public void onCreateChampionshipClick(int nbTeams, String teamRepositoryName) {
@@ -83,10 +81,8 @@ public class PortalTournamentsComposer extends GenericSpringComposer {
         nbTeams, teamRepositoryName);
     tournamentService.autoAssignUnassignedTeams(championship);
 
-    EventQueues.lookup(WFTEventUtil.WFT_APPLICATION, EventQueues.APPLICATION,
-        true).publish(
-        new Event(WFTEventUtil.WFTPortalEvents.WFT_NEW_TOURNAMENT_TO_DISPLAY,
-            null, championship.getId()));
+    WFTUIHelper.publishEventToApplication(
+        WFTEventUtil.WFTPortalEvents.WFT_TOURNAMENT_TO_DISPLAY, championship.getId());
   }
 
 }

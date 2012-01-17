@@ -20,6 +20,8 @@ public class Team extends BaseEntity {
 
 	private String name;
 	
+  private String imagePath;
+
 //	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private TeamType type;
 	
@@ -34,13 +36,16 @@ public class Team extends BaseEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Team(String name, TeamType type) {
-		super();
-		this.name = name;
-		this.type = type;
-	}
 
-	public String getName() {
+  public Team(String name, TeamType type, String imagePath) {
+    super();
+    this.name = name;
+    this.type = type;
+    this.imagePath = imagePath;
+  }
+
+
+  public String getName() {
 		return name;
 	}
 
@@ -63,6 +68,15 @@ public class Team extends BaseEntity {
 	public void setPlayers(List<TeamPlayer> players) {
 		this.players = players;
 	}
+
+  public String getImagePath() {
+    return imagePath;
+  }
+
+  public void setImagePath(String imagePath) {
+    this.imagePath = imagePath;
+  }
+
 
 	
 	
