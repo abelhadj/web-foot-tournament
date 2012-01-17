@@ -35,7 +35,10 @@ public class PortalMainComposer extends GenericSpringComposer  {
 		EventQueues.lookup(WFTEventUtil.WFT_APPLICATION, EventQueues.APPLICATION, true).subscribe(
 				  new EventListener() {
 				    public void onEvent(Event evt) {
-				    	if (WFTEventUtil.WFTPortalEvents.WFT_NEW_TOURNAMENT_TO_DISPLAY.equals(evt.getName())) {
+				    	if (WFTEventUtil.WFTPortalEvents.WFT_TOURNAMENT_TO_DISPLAY.equals(evt.getName())) {
+				    	  if (finalComp.getFirstChild() != null) {
+	                finalComp.removeChild(finalComp.getFirstChild());
+				    	  }
 				    		Integer tournamentId = (Integer) evt.getData();
 				    		Tournament tournament = tournamentService.retrieveTournamentById(tournamentId);
 				    		
