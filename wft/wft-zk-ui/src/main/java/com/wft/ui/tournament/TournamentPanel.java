@@ -21,7 +21,7 @@ public class TournamentPanel extends Panel {
 		if (tournament instanceof SimpleCup) {
 			displaySimpleCup((SimpleCup)tournament);
 		} else if (tournament instanceof Championship) {
-		  displayChampionshio((Championship) tournament);
+		  displayChampionship((Championship) tournament);
 		}
 	}
 
@@ -31,7 +31,7 @@ public class TournamentPanel extends Panel {
 		this.appendChild(child);
 	}
 
-  private void displayChampionshio(Championship championship) {  
+  private void displayChampionship(Championship championship) {  
     Panelchildren child = new Panelchildren();
     child.appendChild(new ChampionshipUI(championship));
     this.appendChild(child);
