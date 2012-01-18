@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+
+  <panel id="panel" border="normal" width="100%" height="100%"
+    apply="${leagueComposer}" style="overflow:auto;">
+    <zscript><![CDATA[
+	import com.wft.model.tournament.league.League;
+	League league = (League) arg.get("game");
+	leagueComposer.setGame(league);
+	//	ListModelMap lm = new ListModelMap(league.getGamingTeamsStats());
+	Map map = new HashMap();
+	com.wft.model.tournament.GamingTeam gamingTeam = new com.wft.model.tournament.GamingTeam();
+	gamingTeam.setTeam(new com.wft.model.team.Team("toto",
+			com.wft.model.team.TeamType.CLUB, ""));
+	com.wft.model.tournament.league.LeagueTeamStats stats = new com.wft.model.tournament.league.LeagueTeamStats();
+	stats.setPoints(1);
+	map.put(gamingTeam, stats);
+	ListModelMap lm = new ListModelMap(map);
+]]>
+</zscript>
+    <panelchildren style="overflow:auto;">
+      <vbox width="100%" height="100%">
+        <grid fixedLayout="false" id="leagueGrid" vflex="1" hflex="1"
+          model="${lm}">
+          <columns>
+            <column width="40px" />
+            <column hflex="4" label="Team" sort="auto" />
+            <column hflex="1" label="Points" sort="auto" />
+            <column hflex="1" label="Played" sort="auto" />
+            <column hflex="1" label="Victories" sort="auto" />
+            <column hflex="1" label="Ties" sort="auto" />
+            <column hflex="1" label="Defeats" sort="auto" />
+            <column hflex="1" label="Goals scored" sort="auto" />
+            <column hflex="1" label="Goals taken" sort="auto" />
+            <column hflex="1" label="Goal avg" sort="auto" />
+          </columns>
+          <template name="model">
+            <row>
+              <detail open="false">
+                <label value="Details" />
+              </detail>
+              <label value="${each.key.team.name}" />
+            </row>
+          </template>
+          <!--                     <rows> -->
+          <!--                       <row height="40px"> -->
+          <!--                         <detail open="false"> -->
+          <!--                           <label id="teamDetails" /> -->
+          <!--                         </detail> -->
+          <!--                         <label value="name" /> -->
+          <!--                         <label value="30" /> -->
+          <!--                         <label value="10" /> -->
+          <!--                         <label value="10" /> -->
+          <!--                         <label value="0" /> -->
+          <!--                         <label value="0" /> -->
+          <!--                         <label value="15" /> -->
+          <!--                         <label value="2" /> -->
+          <!--                         <label value="13" /> -->
+          <!--                       </row> -->
+          <!--                     </rows> -->
+        </grid>
+      </vbox>
+    </panelchildren>
+  </panel>
+</zk>
