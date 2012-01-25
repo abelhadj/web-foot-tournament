@@ -6,7 +6,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
-	<portallayout maximizedMode="whole" width="100%" height="100%">
+	<portallayout maximizedMode="whole" width="100%" height="100%" apply="${appComposer}">
 		<portalchildren style="padding: 5px" width="250px">
 			<panel height="100px" width="100%" title="Profile"
 				border="normal" collapsible="false" closable="false"
