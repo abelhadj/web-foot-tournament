@@ -33,7 +33,7 @@ public class PortalMainComposer extends GenericSpringComposer  {
 		super.doAfterCompose(comp);
 		final Component finalComp = comp;
 		EventQueues.lookup(WFTEventUtil.WFT_APPLICATION, EventQueues.APPLICATION, true).subscribe(
-				  new EventListener() {
+				  new EventListener<Event>() {
 				    public void onEvent(Event evt) {
 				    	if (WFTEventUtil.WFTPortalEvents.WFT_TOURNAMENT_TO_DISPLAY.equals(evt.getName())) {
 				    	  if (finalComp.getFirstChild() != null) {
@@ -46,6 +46,8 @@ public class PortalMainComposer extends GenericSpringComposer  {
 				    	}
 				    }
 				  });
+
 	}
+
 
 }

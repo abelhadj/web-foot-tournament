@@ -16,7 +16,7 @@
     </zscript>
     <panelchildren style="overflow:auto;">
         <vbox>
-          <grid fixedLayout="false" id="gameGrid">
+          <grid fixedLayout="true" id="gameGrid">
             <columns>
               <column width="40px" />
               <column width="200px" sort="auto" />
