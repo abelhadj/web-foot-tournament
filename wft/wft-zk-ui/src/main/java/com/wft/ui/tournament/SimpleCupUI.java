@@ -94,7 +94,6 @@ public class SimpleCupUI extends Tablelayout {
 		panel.appendChild(panelchildren);
 		if (this.eltHeight == null) {
 			this.eltHeight = panel.getHeight();
-//			System.out.println(this.eltHeight);
 		}
 		tableChildren.appendChild(panel);
 	}
