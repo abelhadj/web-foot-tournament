@@ -77,7 +77,9 @@ public class Team extends BaseEntity {
     this.imagePath = imagePath;
   }
 
-
+  public boolean isUnassigned() {
+    return UNASSIGNED_TEAM_NAME.equals(name);
+  }
 	
 	
 }

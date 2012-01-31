@@ -4,6 +4,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.zkoss.spring.util.GenericSpringComposer;
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zul.Button;
 import org.zkoss.zul.Grid;
 import org.zkoss.zul.Image;
 import org.zkoss.zul.Label;
@@ -26,34 +27,45 @@ public class GameComposer extends GenericSpringComposer {
   public void doAfterCompose(Component comp) throws Exception {
     super.doAfterCompose(comp);
 
-    Label htNameLbl = (Label) WFTUIHelper.getChildByName(comp,
-        "hostingTeamName");
-    Image htImage = (Image) WFTUIHelper
-        .getChildByName(comp, "hostingTeamImage");
-    Label htDetailsLbl = (Label) WFTUIHelper.getChildByName(comp,
-        "hostingTeamDetails");
-    GamingTeam hGTeam = game.getHostingTeam();
-    synchronizeGamingTeamToLabel(htNameLbl, hGTeam);
-    synchronizeGamingTeamToImage(htImage, hGTeam);
-    synchronizeGamingTeamToLabel(htDetailsLbl, hGTeam, "Details about : ");
-
-    Label vtNameLbl = (Label) WFTUIHelper.getChildByName(comp,
-        "visitorTeamName");
-    Image vtImage = (Image) WFTUIHelper
-        .getChildByName(comp, "visitorTeamImage");
-    Label vtDetailsLbl = (Label) WFTUIHelper.getChildByName(comp,
-        "visitorTeamDetails");
-    GamingTeam vGTeam = game.getVisitorTeam();
-    synchronizeGamingTeamToLabel(vtNameLbl, vGTeam);
-    synchronizeGamingTeamToImage(vtImage, vGTeam);
-    synchronizeGamingTeamToLabel(vtDetailsLbl, vGTeam, "Details about : ");
+    synchronizeGamingTeamToUI(comp, game.getHostingTeam(), "hosting");
+    synchronizeGamingTeamToUI(comp, game.getVisitorTeam(), "visitor");
 
     if (game.isALeafGame()) {
       Grid grid = (Grid) WFTUIHelper.getChildByName(comp, "gameGrid");
 
       grid.getRows().removeChild(grid.getRows().getLastChild());
 
+      Label htNameLbl = (Label) WFTUIHelper.getChildByName(comp,
+          "hostingTeamName");
       htNameLbl.setStyle("color:green");
+    }
+  }
+
+  private void synchronizeGamingTeamToUI(Component comp, GamingTeam gTeam,
+      String idsPrefix) {
+    if (gTeam != null) {
+      Image gtImage = (Image) WFTUIHelper.getChildByName(comp, idsPrefix
+          + "TeamImage");
+      Label gtNameLbl = (Label) WFTUIHelper.getChildByName(comp, idsPrefix
+          + "TeamName");
+      Button gtGamerBtn = (Button) WFTUIHelper.getChildByName(comp, idsPrefix
+          + "Gamer");
+      Label gtDetailsLbl = (Label) WFTUIHelper.getChildByName(comp, idsPrefix
+          + "TeamDetails");
+      synchronizeGamingTeamToImage(gtImage, gTeam);
+      synchronizeGamingTeamToLabel(gtNameLbl, gTeam);
+      synchronizeGamingTeamToGamerButton(gtGamerBtn, gTeam);
+      synchronizeGamingTeamToLabel(gtDetailsLbl, gTeam, "Details about : ");
+    }
+  }
+
+  private void synchronizeGamingTeamToGamerButton(Button htGamerBtn,
+      GamingTeam gTeam) {
+    if (gTeam.getGamer() == null) {
+      htGamerBtn.setLabel("Unassigned");
+      htGamerBtn.setStyle("color:green");
+    } else {
+      htGamerBtn.setLabel(gTeam.getGamer().getLogin());
     }
   }
 
@@ -63,13 +75,13 @@ public class GameComposer extends GenericSpringComposer {
 
   private void synchronizeGamingTeamToLabel(Label label, GamingTeam gTeam,
       String prefix) {
-    if (gTeam != null && gTeam.getTeam() != null) {
+    if (gTeam.getTeam() != null) {
       label.setValue(prefix + gTeam.getTeam().getName());
     }
   }
 
   private void synchronizeGamingTeamToImage(Image image, GamingTeam gTeam) {
-    if (gTeam != null && gTeam.getTeam() != null) {
+    if (gTeam.getTeam() != null) {
       if (StringUtils.isNotEmpty(gTeam.getTeam().getImagePath())) {
         image.setSrc(gTeam.getTeam().getImagePath());
       }

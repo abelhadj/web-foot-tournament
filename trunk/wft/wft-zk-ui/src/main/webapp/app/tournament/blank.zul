@@ -5,7 +5,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
-  <panel height="150px" border="none">
+  <panel height="160px" border="none">
     <panelchildren>
 
     </panelchildren>

@@ -6,47 +6,60 @@
   xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
 
-  <panel id="panel" border="normal" height="150px"
+  <panel id="panel" border="normal" height="160px"
     apply="${gameComposer}" style="overflow:auto;">
     <zscript><![CDATA[
-	import com.wft.model.tournament.game.Game;
-	Game game = (Game) arg.get("game");
-	gameComposer.setGame(game);
+  import com.wft.model.tournament.game.Game;
+  Game game = (Game) arg.get("game");
+  gameComposer.setGame(game);
+  
 ]]>
     </zscript>
     <panelchildren style="overflow:auto;">
-        <vbox>
-          <grid fixedLayout="true" id="gameGrid">
-            <columns>
-              <column width="40px" />
-              <column width="200px" sort="auto" />
-              <column width="50px" label="Score" sort="auto" />
-            </columns>
-            <rows>
-              <row height="40px">
-                <detail open="false">
-                  <label id="hostingTeamDetails" />
-                </detail>
-                <hbox>
-                  <image id="hostingTeamImage" width="30px" height="30px" />
+      <vbox>
+        <grid fixedLayout="true" id="gameGrid">
+          <columns>
+            <column width="40px" />
+            <column width="200px" sort="auto" />
+            <column width="50px" label="Score" sort="auto" />
+          </columns>
+          <rows>
+            <row height="40px">
+              <detail open="false">
+                <label id="hostingTeamDetails" />
+              </detail>
+              <hbox>
+                <image id="hostingTeamImage" width="30px" height="30px" />
+                <vbox>
                   <label id="hostingTeamName" />
-                </hbox>
-                <button id="hostingTeamScore" label="-"/>
-              </row>
-              <row height="40px">
-                <detail open="false">
-                  <label id="visitorTeamDetails" />
-                </detail>
-                <hbox>
-                  <image id="visitorTeamImage" width="30px" height="30px" />
+                  <hbox>
+                    <label value="Gamer: " />
+                    <button id="hostingGamer" />
+                  </hbox>
+                </vbox>
+              </hbox>
+              <button id="hostingTeamScore" label="-" />
+            </row>
+            <row height="40px">
+              <detail open="false">
+                <label id="visitorTeamDetails" />
+              </detail>
+              <hbox>
+                <image id="visitorTeamImage" width="30px" height="30px" />
+                <vbox>
                   <label id="visitorTeamName" />
-                </hbox>
-                <button id="visitorTeamScore" label="-" />
-              </row>
-            </rows>
-          </grid>
-          <label value="infos ..." />
-        </vbox>
+                  <hbox>
+                    <label value="Gamer: " />
+                  <button id="visitorGamer" />
+                  </hbox>
+                </vbox>
+              </hbox>
+              <button id="visitorTeamScore" label="-" />
+            </row>
+          </rows>
+        </grid>
+        <label value="infos ..." />
+      </vbox>
     </panelchildren>
   </panel>
 </zk>
