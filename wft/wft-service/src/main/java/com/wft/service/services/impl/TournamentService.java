@@ -54,11 +54,11 @@ public class TournamentService extends ServiceImpl<Tournament> implements
 
   private static Log logger = LogFactory.getLog(TournamentService.class);
 
-  private GamingTeam getNewUnassignedGamingTeam() {
+  private GamingTeam getNewGamingTeamOfUnnamedTeam() {
     GamingTeam result = new GamingTeam();
-    Team unassignedTeam = teamDAO.findByName(Team.UNASSIGNED_TEAM_NAME);
+    Team unassignedTeam = teamDAO.findByName(Team.UNNAMED_TEAM_NAME);
     if (unassignedTeam == null) {
-      unassignedTeam = new Team(Team.UNASSIGNED_TEAM_NAME, TeamType.CLUB, "");
+      unassignedTeam = new Team(Team.UNNAMED_TEAM_NAME, TeamType.CLUB, "");
       teamDAO.add(unassignedTeam);
     }
     result.setTeam(unassignedTeam);
@@ -88,12 +88,12 @@ public class TournamentService extends ServiceImpl<Tournament> implements
     return cup;
   }
 
-  private void initAbstractTournament(Tournament cup, Organizer organizer,
+  private void initAbstractTournament(Tournament tournament, Organizer organizer,
       String teamRepositoryName) {
     List<Organizer> organizers = new ArrayList<Organizer>();
     organizers.add(organizer);
-    cup.setOrganizers(organizers);
-    cup.setTeamRepoName(teamRepositoryName);
+    tournament.setOrganizers(organizers);
+    tournament.setTeamRepoName(teamRepositoryName);
   }
 
   private void createSubCupNode(CupNode cupNode, int depth,
@@ -119,7 +119,7 @@ public class TournamentService extends ServiceImpl<Tournament> implements
       if (depth == 1 && cupStructure.get(1).equals(new Integer(0))) {
         cupStructure.set(1, -1);
       } else {
-        game.setHostingTeam(getNewUnassignedGamingTeam());
+        game.setHostingTeam(getNewGamingTeamOfUnnamedTeam());
         game.setPlayed(true);
 
         if (depth == 0) {
@@ -146,7 +146,7 @@ public class TournamentService extends ServiceImpl<Tournament> implements
 
     for (int i = 0; i < nbTeams; i++) {
       championship.getLeague().getGamingTeamsStats()
-          .put(getNewUnassignedGamingTeam(), new LeagueTeamStats());
+          .put(getNewGamingTeamOfUnnamedTeam(), new LeagueTeamStats());
     }
     LeagueHelper.syncTeamStatsFromGames(championship.getLeague());
 
@@ -159,7 +159,7 @@ public class TournamentService extends ServiceImpl<Tournament> implements
     return tournamentDAO.findAll();
   }
 
-  public void requestToPlayInTournament(Tournament tournament, Team team) {
+  public void requestToPlayInTournament(User user, Tournament tournament, Team team) {
     // TODO Auto-generated method stub
 
   }
@@ -235,7 +235,7 @@ public class TournamentService extends ServiceImpl<Tournament> implements
   private void autoAssignSimpleCup(CupNode cupNode, List<Team> teams) {
     GamingTeam gamingTeam = cupNode.getNodeGame().getHostingTeam();
     if (gamingTeam != null) {
-      if (Team.UNASSIGNED_TEAM_NAME.equals(gamingTeam.getTeam().getName())) {
+      if (Team.UNNAMED_TEAM_NAME.equals(gamingTeam.getTeam().getName())) {
         assignTeamFromList(gamingTeam, teams);
       }
     } else {

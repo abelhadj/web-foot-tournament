@@ -32,7 +32,7 @@ public interface ITournamentService extends ICommonService<Tournament> {
   List<Tournament> getAllTournamentsAccessibleForUser(User user);
 
   @Secured("ROLE_USER")
-  void requestToPlayInTournament(Tournament tournament, Team team);
+  void requestToPlayInTournament(User user, Tournament tournament, Team team);
 
   @Secured("ROLE_ORGANIZER")
   List<GamingRequest> getAllPlayingRequests();

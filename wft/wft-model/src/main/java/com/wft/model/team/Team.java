@@ -28,7 +28,7 @@ public class Team extends BaseEntity {
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<TeamPlayer> players = new LinkedList<TeamPlayer>();
 
-	public static final String UNASSIGNED_TEAM_NAME = "<UNASSIGNED>";
+	public static final String UNNAMED_TEAM_NAME = "<UNNAMED>";
 
 	
 	public Team() {
@@ -78,7 +78,7 @@ public class Team extends BaseEntity {
   }
 
   public boolean isUnassigned() {
-    return UNASSIGNED_TEAM_NAME.equals(name);
+    return UNNAMED_TEAM_NAME.equals(name);
   }
 	
 	
