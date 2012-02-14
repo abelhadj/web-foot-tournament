@@ -7,7 +7,7 @@
 
 
   <panel id="panel" border="normal" height="160px"
-    apply="${gameComposer}" style="overflow:auto;">
+    apply="${gameComposer}">
     <zscript><![CDATA[
   import com.wft.model.tournament.game.Game;
   Game game = (Game) arg.get("game");
@@ -15,7 +15,7 @@
   
 ]]>
     </zscript>
-    <panelchildren style="overflow:auto;">
+    <panelchildren >
       <vbox>
         <grid fixedLayout="true" id="gameGrid">
           <columns>
